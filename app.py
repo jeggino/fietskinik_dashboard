@@ -11,3 +11,9 @@ deta = Deta(st.secrets["deta_key"])
 
 # Create a new database
 db = deta.Base("project_fietskliniek")
+
+# find if there are available shift in that data
+db_content = db.fetch().items
+df = pd.DataFrame(db_content)
+
+st.dataframe(df)
