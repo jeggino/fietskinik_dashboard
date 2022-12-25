@@ -22,7 +22,7 @@ if len(df_filter_data)==0:
   st.info('No appointments', icon="ℹ️")
 else:
   
-  left, right = st.columns(3)
+  left, right = st.columns(2)
   with left:
     time_shift = st.selectbox('Chose a time shift',time_shift_choice)
     
