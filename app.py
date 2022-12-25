@@ -23,8 +23,9 @@ if len(df_filter_data)==0:
 
 else:
   col2, col3, col4 = st.columns([1, 1, 1])
-  time_shift = st.selectbox('Chose a time shift',time_shift_choice)
-  placeholder = st.empty()
+  time_shift_empty = st.empty()
+  time_shift = time_shift_empty.selectbox('Chose a time shift',time_shift_choice)
+  
   df_filter_time = df_filter_data[df_filter_data.time_shift==time_shift].sort_values("time_shift").reset_index(drop=True)
   
   n_1 = len(df_filter_data[df_filter_data.time_shift=="14-16"])
@@ -40,3 +41,4 @@ else:
   
   if not st.checkbox('Show table'):
     placeholder.empty()
+    time_shift_empty.empty()
