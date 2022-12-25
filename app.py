@@ -18,7 +18,7 @@ db_content = db.fetch().items
 df = pd.DataFrame(db_content)
 df_filter_data = df[df.date==date]
 
-if len(df_filter)==0:
+if len(df_filter_data)==0:
   st.info('No appointments', icon="ℹ️")
 else:
   df_filter_time = df_filter_data[df_filter_data.time_shift==time_shift].drop("key",axis=1).sort_values("time_shift").reset_index(drop=True)
