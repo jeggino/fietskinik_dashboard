@@ -18,5 +18,10 @@ db_content = db.fetch().items
 df = pd.DataFrame(db_content)
 df_filter = df[(df.date==date) & (df.time_shift.isin(time_shift))].T
 
+if len(df_filter)==0:
+  st.info('No appointments', icon="ℹ️")
+else:
+  st.dataframe(df_filter)
 
-st.dataframe(df_filter)
+
+
