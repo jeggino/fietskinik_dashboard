@@ -16,12 +16,12 @@ time_shift = st.multiselect('Chose a time shift',time_shift_choice, time_shift_c
 db = deta.Base("project_fietskliniek")
 db_content = db.fetch().items
 df = pd.DataFrame(db_content)
-df_filter = df[(df.date==date) & (df.time_shift.isin(time_shift))].T
+df_filter = df[(df.date==date) & (df.time_shift.isin(time_shift))]
 
 if len(df_filter)==0:
   st.info('No appointments', icon="ℹ️")
 else:
-  st.dataframe(df_filter)
+  st.dataframe(df_filter.T)
 
 
 
