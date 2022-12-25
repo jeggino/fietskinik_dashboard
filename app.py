@@ -10,7 +10,7 @@ time_shift_choice = ["14-16", "16-18", "18-20"]
 # Connect to Deta Base with your Project Key
 deta = Deta(st.secrets["deta_key"])
 
-date = st.date_input("Choose a date")
+date =  str(st.date_input("Choose a date"))
 time_shift = st.multiselect('Chose a time shift',time_shift_choice, time_shift_choice)
 
 # Create a new database
