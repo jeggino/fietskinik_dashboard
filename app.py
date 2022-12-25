@@ -45,7 +45,7 @@ placeholder.text("Hello")
 # Replace the text with a chart:
 placeholder.line_chart({"data": [1, 5, 2, 6]})
 
-if st.button('Say hello'):
+if st.checkbox('Show plot'):
     st.write('cancelled')
     placeholder.empty()
 
