@@ -22,10 +22,9 @@ if len(df_filter_data)==0:
   st.info('No appointments', icon="ℹ️")
 else:
   
-  left, right = st.columns(2)
   col1, col2, col3, col4 = st.columns(4)
   
-  time_shift = col1.st.selectbox('Chose a time shift',time_shift_choice)
+  time_shift = col1.selectbox('Chose a time shift',time_shift_choice)
   df_filter_time = df_filter_data[df_filter_data.time_shift==time_shift].sort_values("time_shift").reset_index(drop=True)
   n_1 = len(df_filter_data[df_filter_data.time_shift=="14-16"])
   n_2 = len(df_filter_data[df_filter_data.time_shift=="16-18"])
