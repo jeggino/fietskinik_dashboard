@@ -38,5 +38,5 @@ else:
   placeholder = st.empty()
   placeholder.dataframe(df_filter_time[["name","e_mail","buurt","opmerking","materiaal","werkzaamheedeb"]].T, use_container_width=True)
   
-  if st.checkbox('Show table'):
+  if not st.checkbox('Show table'):
     placeholder.empty()
