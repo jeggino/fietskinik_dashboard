@@ -45,6 +45,10 @@ placeholder.text("Hello")
 # Replace the text with a chart:
 placeholder.line_chart({"data": [1, 5, 2, 6]})
 
+if st.button('Say hello'):
+    st.write('cancelled')
+    placeholder.empty()
+
 # # Replace the chart with several elements:
 # with placeholder.container():
 #     st.write("This is one element")
