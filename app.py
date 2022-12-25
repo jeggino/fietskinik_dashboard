@@ -22,9 +22,9 @@ if len(df_filter_data)==0:
   st.info('No appointments', icon="ℹ️")
 else:
   df_filter_time = df_filter_data[df_filter_data.time_shift==time_shift].drop("key",axis=1).sort_values("time_shift").reset_index(drop=True)
-  n_1 = len(df_filter_data.time_shift=="14-16")
-  n_2 = len(df_filter_data.time_shift=="16-18")
-  n_3 = len(df_filter_data.time_shift=="18-20")
+  n_1 = len(df_filter_data[df_filter_data.time_shift=="14-16"])
+  n_2 = len(df_filter_data[df_filter_data.time_shift=="16-18"])
+  n_3 = len(df_filter_data[df_filter_data.time_shift=="18-20"])
   
   col1, col2, col3 = st.columns(3)
   col1.metric("14-16", f"{n_1} clients")
