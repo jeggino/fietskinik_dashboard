@@ -36,9 +36,11 @@ else:
   col3.metric("16-18", f"{n_2} clients")
   col4.metric("18-20", f"{n_3} clients")
   placeholder = st.empty()
+  
+  if not st.checkbox('Show table'):
+    placeholder.empty()
+    time_shift_empty.empty()
 
   placeholder.dataframe(df_filter_time[["name","e_mail","buurt","opmerking","materiaal","werkzaamheedeb"]].T, use_container_width=True)
   
-#   if not st.checkbox('Show table'):
-#     placeholder.empty()
-#     time_shift_empty.empty()
+
