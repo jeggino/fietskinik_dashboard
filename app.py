@@ -17,9 +17,9 @@ db = deta.Base("project_fietskliniek")
 
 st.write(date)
 st.write(time_shift)
-# db_content = db.fetch().items
-# df = pd.DataFrame(db_content)
-# df_filter = df[(df.date==date) & (df.time_shift.isin(time_shift))]
+db_content = db.fetch().items
+df = pd.DataFrame(db_content)
+df_filter = df[(df.date==date) & (df.time_shift.isin(time_shift))]
 
 
-# st.dataframe(df_filter)
+st.dataframe(df_filter)
