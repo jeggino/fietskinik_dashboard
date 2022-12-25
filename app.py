@@ -14,9 +14,6 @@ time_shift = st.multiselect('Chose a time shift',time_shift_choice, time_shift_c
 
 # Create a new database
 db = deta.Base("project_fietskliniek")
-
-st.write(date)
-st.write(time_shift)
 db_content = db.fetch().items
 df = pd.DataFrame(db_content)
 df_filter = df[(df.date==date) & (df.time_shift.isin(time_shift))]
