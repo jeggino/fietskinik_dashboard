@@ -29,7 +29,7 @@ else:
   col1.metric("14-16", f"{n_1} clients")
   col2.metric("16-18", f"{n_2} clients")
   col3.metric("18-20", f"{n_3} clients")
-  st.dataframe(df_filter["name","e_mail","buurt","opmerking","materiaal","werkzaamheedeb"].T)
+  st.dataframe(df_filter[["name","e_mail","buurt","opmerking","materiaal","werkzaamheedeb"]].T)
 
 
 
