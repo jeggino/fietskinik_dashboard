@@ -23,7 +23,7 @@ df_filter = df[(df.date==date) & (df.time_shift==time_shift)]
 
 db_content = db.fetch().items
 df = pd.DataFrame(db_content)
-df_filter = df[(df.date==date) & (df.time_shift==time_shift)]
+df_filter = df[(df.date==date) & (df.time_shift.isin(time_shift))]
 
 
 st.dataframe(df_filter)
