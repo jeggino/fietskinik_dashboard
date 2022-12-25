@@ -10,13 +10,13 @@ time_shift_choice = ["14-16", "16-18", "18-20"]
 # Connect to Deta Base with your Project Key
 deta = Deta(st.secrets["deta_key"])
 date =  str(st.date_input("Choose a date"))
-time_shift = st.multiselect('Chose a time shift',time_shift_choice, time_shift_choice)
+time_shift = st.selectbox('Chose a time shift',time_shift_choice)
 
 # Create a new database
 db = deta.Base("project_fietskliniek")
 db_content = db.fetch().items
 df = pd.DataFrame(db_content)
-df_filter = df[(df.date==date) & (df.time_shift.isin(time_shift))].drop("key",axis=1).sort_values("time_shift").reset_index(drop=True)
+df_filter = df[(df.date==date) & (df.time_shift==time_shift)].drop("key",axis=1).sort_values("time_shift").reset_index(drop=True)
 
 if len(df_filter)==0:
   st.info('No appointments', icon="ℹ️")
