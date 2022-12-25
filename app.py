@@ -26,9 +26,9 @@ else:
   n_3 = len(df_filter[df_filter.time_shift=="18-20"])
   
   col1, col2, col3 = st.columns(3)
-  col1.metric("14-16", f"{n_1 clients}")
-  col2.metric("16-18", f"{n_2 clients}")
-  col3.metric("18-20", f"{n_3 clients}")
+  col1.metric("14-16", f"{n_1} clients")
+  col2.metric("16-18", f"{n_2} clients")
+  col3.metric("18-20", f"{n_3} clients")
   st.dataframe(df_filter.T)
 
 
