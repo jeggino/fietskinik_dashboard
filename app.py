@@ -21,9 +21,9 @@ df_filter = df[(df.date==date) & (df.time_shift.isin(time_shift))].drop("key",ax
 if len(df_filter)==0:
   st.info('No appointments', icon="ℹ️")
 else:
-  n_1 = len(df_filter[df_filter.time_shift=="14-16"])
-  n_2 = len(df_filter[df_filter.time_shift=="16-18"])
-  n_3 = len(df_filter[df_filter.time_shift=="18-20"])
+  n_1 = len(df[(df.date==date) & (df.time_shift=="14-16")])
+  n_2 = len(df[(df.date==date) & (df.time_shift=="16-18")])
+  n_3 = len(df[(df.date==date) & (df.time_shift=="18-20")])
   
   col1, col2, col3 = st.columns(3)
   col1.metric("14-16", f"{n_1} clients")
