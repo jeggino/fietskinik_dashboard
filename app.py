@@ -43,4 +43,5 @@ else:
     placeholder.empty()
     time_shift_empty.empty()
   
-
+# Display the contents of the dictionary
+st.write(st.experimental_user)
