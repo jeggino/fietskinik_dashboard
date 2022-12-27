@@ -21,6 +21,14 @@ db_content = db.fetch().items
 df = pd.DataFrame(db_content)
 df_filter_data = df[df.date==date]
 
+# --- NAVIGATION MENU ---
+selected = option_menu(
+    menu_title=None,
+    options=["Agenda", "Dashboard"],
+    icons=["bi-journal-check", "bi-x-octagon-fill"],  # https://icons.getbootstrap.com/
+    orientation="vertical",
+)
+
 
 # Using "with" notation
 if len(df_filter_data)==0:
