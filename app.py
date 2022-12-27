@@ -3,6 +3,7 @@ from streamlit_option_menu import option_menu
 from deta import Deta
 import pandas as pd
 import altair as alt
+import time
 
 time_shift_choice = ["14-16", "16-18", "18-20"]
 
