@@ -3,7 +3,7 @@ from streamlit_option_menu import option_menu
 from deta import Deta
 import pandas as pd
 import altair as alt
-import time
+
 
 time_shift_choice = ["14-16", "16-18", "18-20"]
 
@@ -21,15 +21,13 @@ db_content = db.fetch().items
 df = pd.DataFrame(db_content)
 df_filter_data = df[df.date==date]
 
-import streamlit as st
 
+# Using "with" notation
 with st.sidebar:
-    with st.echo():
-        st.write("This code will be printed to the sidebar.")
-
-    with st.spinner("Loading..."):
-        time.sleep(5)
-    st.success("Done!")
+    add_radio = st.radio(
+        "Choose a shipping method",
+        ("Standard (5-15 days)", "Express (2-5 days)")
+    )
 
 if len(df_filter_data)==0:
   st.info('No appointments', icon="ℹ️")
