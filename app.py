@@ -11,6 +11,16 @@ time_shift_choice = ["14-16", "16-18", "18-20"]
 deta = Deta(st.secrets["deta_key"])
 date =  str(st.date_input("Choose a date"))
 
+# Show extra buttons for admin users.
+ADMIN_USERS = {
+    'person1@email.com',
+    'person2@email.com',
+    'person3@email.com'
+}
+if st.experimental_user.email in ADMIN_USERS:
+    display_the_extra_admin_buttons()
+display_the_interface_everyone_sees()
+
 
 # Create a new database
 db = deta.Base("project_fietskliniek")
