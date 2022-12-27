@@ -20,6 +20,16 @@ db_content = db.fetch().items
 df = pd.DataFrame(db_content)
 df_filter_data = df[df.date==date]
 
+import streamlit as st
+
+with st.sidebar:
+    with st.echo():
+        st.write("This code will be printed to the sidebar.")
+
+    with st.spinner("Loading..."):
+        time.sleep(5)
+    st.success("Done!")
+
 if len(df_filter_data)==0:
   st.info('No appointments', icon="ℹ️")
 
