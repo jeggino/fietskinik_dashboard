@@ -9,17 +9,10 @@ time_shift_choice = ["14-16", "16-18", "18-20"]
 
 # Connect to Deta Base with your Project Key
 deta = Deta(st.secrets["deta_key"])
-date =  str(st.date_input("Choose a date"))
-
-
-
-
-
-# Create a new database
 db = deta.Base("project_fietskliniek")
 db_content = db.fetch().items
 df = pd.DataFrame(db_content)
-df_filter_data = df[df.date==date]
+
 
 # --- NAVIGATION MENU ---
 selected = option_menu(
@@ -30,6 +23,8 @@ selected = option_menu(
 )
 
 if selected == "Agenda":
+    date =  str(st.date_input("Choose a date"))
+    df_filter_data = df[df.date==date]
 
     # Using "with" notation
     if len(df_filter_data)==0:
