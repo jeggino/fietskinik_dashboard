@@ -18,7 +18,7 @@ df = pd.DataFrame(db_content)
 selected = option_menu(
     menu_title=None,
     options=["Agenda", "Dashboard"],
-    icons=["bi-journal-check", "bi-x-octagon-fill"],  # https://icons.getbootstrap.com/
+    icons=["bi-journal-check", "bi bi-bar-chart-line-fill"],  # https://icons.getbootstrap.com/
     orientation="horizontal",
 )
 
