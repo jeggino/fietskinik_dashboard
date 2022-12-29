@@ -4,7 +4,7 @@ from deta import Deta
 import pandas as pd
 import altair as alt
 
-passwords = ["luigi", "peppe", "antonio"]
+passwords = ["fietskliniek"]
 password_empty = st.empty()
 password = password_empty.text_input('Movie title', placeholder='insert password ...',type="password", label_visibility="collapsed")
 
