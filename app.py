@@ -11,7 +11,7 @@ password = password_empty.text_input('Movie title', 'Life of Brian',type="passwo
 if password not in passwords:
     st.warning('The password is not correct', icon="⚠️")
 else:
-    password_empty
+    password_empty.empty()
 
     time_shift_choice = ["14-16", "16-18", "18-20"]
 
