@@ -6,12 +6,12 @@ import altair as alt
 
 passwords = ["luigi", "peppe", "antonio"]
 
-password = st.text_input('Movie title', 'Life of Brian',type="password")
+password = st.empty().text_input('Movie title', 'Life of Brian',type="password")
 
 if password not in passwords:
     st.warning('The password is not correct', icon="⚠️")
 else:
-    
+    st.empty()
 
     time_shift_choice = ["14-16", "16-18", "18-20"]
 
