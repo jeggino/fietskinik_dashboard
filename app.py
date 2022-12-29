@@ -5,13 +5,13 @@ import pandas as pd
 import altair as alt
 
 passwords = ["luigi", "peppe", "antonio"]
-
-password = st.empty().text_input('Movie title', 'Life of Brian',type="password")
+password_empty = st.empty()
+password = password_empty.text_input('Movie title', 'Life of Brian',type="password")
 
 if password not in passwords:
     st.warning('The password is not correct', icon="⚠️")
 else:
-    st.empty()
+    password_empty
 
     time_shift_choice = ["14-16", "16-18", "18-20"]
 
