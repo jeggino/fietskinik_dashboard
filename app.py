@@ -4,6 +4,12 @@ from deta import Deta
 import pandas as pd
 import altair as alt
 
+passwords = ["luigi", "peppe", "antonio"]
+
+password = st.text_input(type="password")
+
+if password is not in passwords:
+    st.warning('The password is not correct', icon="⚠️")
 
 time_shift_choice = ["14-16", "16-18", "18-20"]
 
