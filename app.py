@@ -6,7 +6,7 @@ import altair as alt
 
 passwords = ["luigi", "peppe", "antonio"]
 
-password = st.text_input(type="password")
+password = st.text_input(type="password",'Movie title', 'Life of Brian')
 
 if password not in passwords:
     st.warning('The password is not correct', icon="⚠️")
