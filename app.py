@@ -10,6 +10,9 @@ password = password_empty.text_input('Movie title', placeholder='insert password
 
 if password not in passwords:
     st.warning('The password is not correct', icon="⚠️")
+elif password is None:
+    st.info('insert password', icon="ℹ️")
+    
 else:
     password_empty.empty()
 
