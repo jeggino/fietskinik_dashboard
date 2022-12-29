@@ -10,7 +10,6 @@ password = password_empty.text_input('password', placeholder='insert password ..
 
 if not password:
     st.info('insert password', icon="ℹ️")
-    st.stop()
 elif password not in passwords:
     st.warning('The password is not correct', icon="⚠️")
     st.stop()
