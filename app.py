@@ -6,58 +6,59 @@ import altair as alt
 
 passwords = ["fietskliniek"]
 password_empty = st.empty()
-password = password_empty.text_input('Movie title', placeholder='insert password ...',type="password", label_visibility="collapsed")
+password = password_empty.text_input('password', placeholder='insert password ...',type="password", label_visibility="collapsed")
 
-if password is None:
+if not password:
     st.info('insert password', icon="ℹ️")
+    st.stop()
 elif password not in passwords:
-    st.warning('The password is not correct', icon="⚠️")  
-else:
-    password_empty.empty()
+    st.warning('The password is not correct', icon="⚠️")
+    st.stop()
+    
+password_empty.empty()
+time_shift_choice = ["14-16", "16-18", "18-20"]
 
-    time_shift_choice = ["14-16", "16-18", "18-20"]
-
-    # Connect to Deta Base with your Project Key
-    deta = Deta(st.secrets["deta_key"])
-    db = deta.Base("project_fietskliniek")
-    db_content = db.fetch().items
-    df = pd.DataFrame(db_content)
+# Connect to Deta Base with your Project Key
+deta = Deta(st.secrets["deta_key"])
+db = deta.Base("project_fietskliniek")
+db_content = db.fetch().items
+df = pd.DataFrame(db_content)
 
 
-    # --- NAVIGATION MENU ---
-    selected = option_menu(
-        menu_title=None,
-        options=["Agenda", "Dashboard"],
-        icons=["bi-journal-check", "bi bi-bar-chart-line-fill"],  # https://icons.getbootstrap.com/
-        orientation="horizontal",
-    )
+# --- NAVIGATION MENU ---
+selected = option_menu(
+    menu_title=None,
+    options=["Agenda", "Dashboard"],
+    icons=["bi-journal-check", "bi bi-bar-chart-line-fill"],  # https://icons.getbootstrap.com/
+    orientation="horizontal",
+)
 
-    if selected == "Agenda":
-        date =  str(st.date_input("Choose a date"))
-        df_filter_data = df[df.date==date]
+if selected == "Agenda":
+    date =  str(st.date_input("Choose a date"))
+    df_filter_data = df[df.date==date]
 
-        # Using "with" notation
-        if len(df_filter_data)==0:
-          st.info('No appointments', icon="ℹ️")
+    # Using "with" notation
+    if len(df_filter_data)==0:
+      st.info('No appointments', icon="ℹ️")
 
-        else:
-          col2, col3, col4 = st.columns([1, 1, 1])
-          time_shift_empty = st.empty()
-          time_shift = time_shift_empty.radio('Chose a time shift',time_shift_choice, horizontal=True)
+    else:
+      col2, col3, col4 = st.columns([1, 1, 1])
+      time_shift_empty = st.empty()
+      time_shift = time_shift_empty.radio('Chose a time shift',time_shift_choice, horizontal=True)
 
-          df_filter_time = df_filter_data[df_filter_data.time_shift==time_shift].sort_values("time_shift").reset_index(drop=True)
+      df_filter_time = df_filter_data[df_filter_data.time_shift==time_shift].sort_values("time_shift").reset_index(drop=True)
 
-          n_1 = len(df_filter_data[df_filter_data.time_shift=="14-16"])
-          n_2 = len(df_filter_data[df_filter_data.time_shift=="16-18"])
-          n_3 = len(df_filter_data[df_filter_data.time_shift=="18-20"])
+      n_1 = len(df_filter_data[df_filter_data.time_shift=="14-16"])
+      n_2 = len(df_filter_data[df_filter_data.time_shift=="16-18"])
+      n_3 = len(df_filter_data[df_filter_data.time_shift=="18-20"])
 
-          col2.metric("14-16", f"{n_1} clients")
-          col3.metric("16-18", f"{n_2} clients")
-          col4.metric("18-20", f"{n_3} clients")
+      col2.metric("14-16", f"{n_1} clients")
+      col3.metric("16-18", f"{n_2} clients")
+      col4.metric("18-20", f"{n_3} clients")
 
-          placeholder = st.empty()
-          placeholder.dataframe(df_filter_time[["name","e_mail","buurt","opmerking","materiaal","werkzaamheedeb"]].T, use_container_width=True)
+      placeholder = st.empty()
+      placeholder.dataframe(df_filter_time[["name","e_mail","buurt","opmerking","materiaal","werkzaamheedeb"]].T, use_container_width=True)
 
-          if not st.checkbox('Show table'):
-            placeholder.empty()
-            time_shift_empty.empty()
+      if not st.checkbox('Show table'):
+        placeholder.empty()
+        time_shift_empty.empty()
