@@ -15,7 +15,7 @@ password = password_empty.text_input('password', placeholder='insert password ..
 if not password:
     st.stop()
 
-else password not in passwords:
+elif password not in passwords:
     st.warning('The password is not correct', icon="⚠️")
     st.stop()
     
