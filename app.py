@@ -4,22 +4,20 @@ from deta import Deta
 import pandas as pd
 import altair as alt
 
-import base64
 
 
+# passwords = ["fietskliniek"]
+# password_empty = st.empty()
+# password = password_empty.text_input('password', placeholder='insert password ...',type="password", label_visibility="collapsed")
 
-passwords = ["fietskliniek"]
-password_empty = st.empty()
-password = password_empty.text_input('password', placeholder='insert password ...',type="password", label_visibility="collapsed")
+# if not password:
+#     st.stop()
 
-if not password:
-    st.stop()
-
-elif password not in passwords:
-    st.warning('The password is not correct', icon="⚠️")
-    st.stop()
+# elif password not in passwords:
+#     st.warning('The password is not correct', icon="⚠️")
+#     st.stop()
     
-password_empty.empty()
+# password_empty.empty()
 time_shift_choice = ["14-16", "16-18", "18-20"]
 
 # Connect to Deta Base with your Project Key
