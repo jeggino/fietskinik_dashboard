@@ -49,7 +49,7 @@ def set_png_as_page_bg(png_file):
     st.markdown(page_bg_img, unsafe_allow_html=True)
     return
 
-set_png_as_page_bg("C:\Users\Luigi\OneDrive\Desktop\IMG_0433_edited.jpg")
+set_png_as_page_bg("https://live.staticflickr.com/6168/6205061962_b89837be86_b.jpg")
 
 
 # --- NAVIGATION MENU ---
