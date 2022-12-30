@@ -1,7 +1,7 @@
 [theme]
 primaryColor="#F63366"
-backgroundColor="#ecf0f1"
-background="_MG_0069_edited.jpg"
+#backgroundColor="#ecf0f1"
+background="My project.png"
 secondaryBackgroundColor="#F0F2F6"
 textColor="#262730"
 font="sans serif"
