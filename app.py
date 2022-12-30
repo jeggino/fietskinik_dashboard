@@ -49,7 +49,7 @@ def set_png_as_page_bg(png_file):
     st.markdown(page_bg_img, unsafe_allow_html=True)
     return
 
-set_png_as_page_bg('My project.png')
+
 
 
 # --- NAVIGATION MENU ---
@@ -61,6 +61,7 @@ selected = option_menu(
 )
 
 if selected == "Agenda":
+    set_png_as_page_bg('My project.png')
     date =  str(st.date_input("Choose a date"))
     df_filter_data = df[df.date==date]
 
