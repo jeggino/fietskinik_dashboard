@@ -79,7 +79,7 @@ if selected == "Dashboard":
     from streamlit_vega_lite import vega_lite_component, altair_component
 
     hist_data = pd.DataFrame(np.random.normal(42, 10, (200, 1)), columns=["x"])
-    st.dataframe(hist_data)
+    
 
     @st.cache
     def altair_histogram():
@@ -97,4 +97,5 @@ if selected == "Dashboard":
     r = event_dict.get("x")
     if r:
         filtered = hist_data[(hist_data.x >= r[0]) & (hist_data.x < r[1])]
+        st.dataframe(filtered)
         st.write(filtered)
