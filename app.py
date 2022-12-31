@@ -131,7 +131,9 @@ if selected == "Dashboard":
             lat_point = map_data["last_object_clicked"]["lat"]
             lng_point = map_data["last_object_clicked"]["lng"]
             img_name = df_point[(df_point["lat"]==lat_point) & (df_point["lng"]==lng_point)]["image_name"].values[0]
-            st.metric(label="Value", value=img_name)
+            st.write(img_name)
+#             st.metric(label="Value", value=img_name)
+
             img = drive.get(img_name).read()
             st.image(img, caption="dai dai")
             
