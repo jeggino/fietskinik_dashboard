@@ -6,18 +6,18 @@ import altair as alt
 
 
 # ---INSET PASSWORD---
-# passwords = ["a"]
-# password_empty = st.empty()
-# password = password_empty.text_input('password', placeholder='insert password ...',type="password", label_visibility="collapsed")
+passwords = ["a"]
+password_empty = st.empty()
+password = password_empty.text_input('password', placeholder='insert password ...',type="password", label_visibility="collapsed")
 
-# if not password:
-#     st.stop()
+if not password:
+    st.stop()
 
-# elif password not in passwords:
-#     st.warning('The password is not correct', icon="⚠️")
-#     st.stop()
+elif password not in passwords:
+    st.warning('The password is not correct', icon="⚠️")
+    st.stop()
     
-# password_empty.empty()
+password_empty.empty()
 
 
 # ---Connect to Deta Base with your Project Key---
