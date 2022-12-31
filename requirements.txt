@@ -2,5 +2,6 @@ streamlit
 deta
 pandas
 streamlit_option_menu
-streamlit_vega_lite
+pandas_profiling
+streamlit_pandas_profiling
 altair
