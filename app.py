@@ -127,6 +127,14 @@ if selected == "Dashboard":
             value = state_data[state_data["State"]==state]["Unemployment"].values[0]
             st.metric(label="State", value=state)
             st.metric(label="Unemployment", value=value)
+            
+            df_point = pd.Dataframe(data={lat:28.5011226, lng:77.4099794,value:5678})
+            lat_point = map_data["last_object_clicked"]["lat"]
+            lng_point = map_data["last_object_clicked"]["lng"]
+            value_point = df_point[(df_point["lat"]==lat_point) & (df_point["lng"]==lng_point) ]["value"].values[0]
+            st.metric(label="Value", value=value_point)
+            
+            
         except:
              st.info('Click on a State to see the uneplonment', icon="ℹ️")
        
