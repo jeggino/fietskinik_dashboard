@@ -95,28 +95,28 @@ if selected == "Dashboard":
     c1, c2 = st.columns([3,1])
     # layout map
     with c1:
-        # getting the data
-        url = (
-            "https://raw.githubusercontent.com/python-visualization/folium/master/examples/data"
-        )
-        state_geo = f"{url}/us-states.json"
-        state_unemployment = f"{url}/US_Unemployment_Oct2012.csv"
-        state_data = pd.read_csv(state_unemployment)
+#         # getting the data
+#         url = (
+#             "https://raw.githubusercontent.com/python-visualization/folium/master/examples/data"
+#         )
+#         state_geo = f"{url}/us-states.json"
+#         state_unemployment = f"{url}/US_Unemployment_Oct2012.csv"
+#         state_data = pd.read_csv(state_unemployment)
         
         
-        m = folium.Map(location = [40, -95], zoom_start = 4)
-        folium.Choropleth(
+#         m = folium.Map(location = [40, -95], zoom_start = 4)
+#         folium.Choropleth(
    
-              # geographical locations
-            geo_data = state_geo,                    
-            name = "choropleth",
-            data = state_data,                       
-            columns = ["State", "Unemployment"],    
-            fill_color = "YlGn",                     
-            fill_opacity = 0.7,
-            line_opacity = .1,
-            key_on = "feature.id"
-        ).add_to(m)     
+#               # geographical locations
+#             geo_data = state_geo,                    
+#             name = "choropleth",
+#             data = state_data,                       
+#             columns = ["State", "Unemployment"],    
+#             fill_color = "YlGn",                     
+#             fill_opacity = 0.7,
+#             line_opacity = .1,
+#             key_on = "feature.id"
+#         ).add_to(m)     
         
         folium.Marker([52.3708743,4.9314713],popup = ' Geeksforgeeks.org ').add_to(m)
 
@@ -127,6 +127,7 @@ if selected == "Dashboard":
         try:
             db_content = db.fetch().items
             df_point = pd.DataFrame(db_content)
+            st.dataframe(df_point)
             lat_point = map_data["last_object_clicked"]["lat"]
             lng_point = map_data["last_object_clicked"]["lng"]
             img_name = df_point[(df_point["lat"]==lat_point) & (df_point["lng"]==lng_point)]["image_name"].values[0]
