@@ -87,4 +87,5 @@ if selected == "Dashboard":
             .add_selection(brushed)
         )
 
-    st.altair_chart(altair_histogram(), use_container_width=True)
+    plot = st.altair_chart(altair_histogram(), use_container_width=True)
+    st.write(plot)
