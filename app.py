@@ -85,7 +85,7 @@ if selected == "Dashboard":
     # Streamlit app
     #############################
 
-    "## National Parks in the United States"
+    "## Unemployment in the United States"
 
     """
     The National Parks Service provides an [API](https://www.nps.gov/subjects/digital/nps-data-api.htm) to programmatically explore NPS data. 
@@ -118,17 +118,12 @@ if selected == "Dashboard":
               # geographical locations
             geo_data = state_geo,                    
             name = "choropleth",
-
-              # the data set we are using
             data = state_data,                       
             columns = ["State", "Unemployment"],    
-
-              # YlGn refers to yellow and green
             fill_color = "YlGn",                     
             fill_opacity = 0.7,
             line_opacity = .1,
-              key_on = "feature.id",
-            legend_name = "Unemployment Rate (%)",
+            key_on = "feature.id"
         ).add_to(m)      
 
 
