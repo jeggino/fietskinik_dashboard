@@ -6,7 +6,7 @@ import altair as alt
 
 
 # ---INSET PASSWORD---
-passwords = ["fietskliniek"]
+passwords = ["a"]
 password_empty = st.empty()
 password = password_empty.text_input('password', placeholder='insert password ...',type="password", label_visibility="collapsed")
 
