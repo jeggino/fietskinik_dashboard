@@ -110,6 +110,8 @@ if selected == "Dashboard":
         state_geo = f"{url}/us-states.json"
         state_unemployment = f"{url}/US_Unemployment_Oct2012.csv"
         state_data = pd.read_csv(state_unemployment)
+        
+        
         m = folium.Map(location = [40, -95], zoom_start = 4)
         folium.Choropleth(
    
@@ -131,4 +133,5 @@ if selected == "Dashboard":
 
 
         map_data = st_folium(m, key="fig1", width=700, height=700)
-        st.write(map_data)
+        st.write(map_data["last_object_clicked"])
+        st.dataframe(state_data)
