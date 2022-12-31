@@ -96,7 +96,7 @@ if selected == "Dashboard":
     """
 
     # define layout
-    c1, c2 = st.columns(2)
+    c1, c2 = st.columns([3,1])
 
 
 
@@ -136,6 +136,7 @@ if selected == "Dashboard":
     with c2:
         state = map_data["last_active_drawing"]["id"]
         value = state_data[state_data["State"]==state]["Unemployment"].values[0]
+        st.metric(label="State", value=state)
         st.metric(label="Unemployment", value=value)
        
         
