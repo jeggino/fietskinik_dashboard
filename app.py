@@ -104,7 +104,7 @@ if selected == "Dashboard":
 #         state_data = pd.read_csv(state_unemployment)
         
         
-        m = folium.Map(location = [40, -95], zoom_start = 4)
+        
 #         folium.Choropleth(
    
 #               # geographical locations
@@ -117,8 +117,8 @@ if selected == "Dashboard":
 #             line_opacity = .1,
 #             key_on = "feature.id"
 #         ).add_to(m)     
-        
-        folium.Marker([52.3708743,4.9314713],popup = ' Geeksforgeeks.org ').add_to(m)
+        m = folium.Map(location = [40, -95], zoom_start = 4)
+        folium.Marker([52.3607733,4.9184529],popup = 'Geeksforgeeks.org ').add_to(m)
 
         map_data = st_folium(m, key="fig1")
         st.write(map_data)
