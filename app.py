@@ -114,9 +114,12 @@ if selected == "Dashboard":
             fill_opacity = 0.7,
             line_opacity = .1,
             key_on = "feature.id"
-        ).add_to(m)      
+        ).add_to(m)     
+        
+        folium.Marker([28.5011226, 77.4099794],popup = ' Geeksforgeeks.org ').add_to(m)
 
         map_data = st_folium(m, key="fig1")
+        st.write(map_data)
         
     with c2:
         try:
