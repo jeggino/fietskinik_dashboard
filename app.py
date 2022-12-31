@@ -125,7 +125,7 @@ if selected == "Dashboard":
         
     with c2:
         try:
-            db_content = db.fetch().items
+            db_content = db_point.fetch().items
             df_point = pd.DataFrame(db_content)
             st.dataframe(df_point)
             lat_point = map_data["last_object_clicked"]["lat"]
