@@ -104,7 +104,7 @@ if selected == "Dashboard":
 #         state_data = pd.read_csv(state_unemployment)
         
         
-#         m = folium.Map(location = [40, -95], zoom_start = 4)
+        m = folium.Map(location = [40, -95], zoom_start = 4)
 #         folium.Choropleth(
    
 #               # geographical locations
