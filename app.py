@@ -134,4 +134,5 @@ if selected == "Dashboard":
 
         map_data = st_folium(m, key="fig1", width=700, height=700)
         st.write(map_data["last_active_drawing"]["id"])
-        st.dataframe(state_data)
+        state = map_data["last_active_drawing"]["id"]
+        st.dataframe(state_data["State"]==state)
