@@ -81,7 +81,7 @@ if selected == "Dashboard":
         brushed = alt.selection(type="single", name="brushed")
 
         return (
-            alt.Chart(db_content)
+            alt.Chart(df)
             .mark_bar()
             .encode(alt.X("buurt:N"), y="count()")
             .add_selection(brushed)
@@ -91,6 +91,6 @@ if selected == "Dashboard":
 
     r = event_dict.get("buurt")
     if r:
-        filtered = db_content[db_content.buurt >= r[0]]
+        filtered = df[df.buurt >= r[0]]
         st.dataframe(filtered)
         st.write(filtered)
