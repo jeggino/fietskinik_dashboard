@@ -131,7 +131,8 @@ if selected == "Dashboard":
             df_point = pd.Dataframe(data={lat:28.5011226, lng:77.4099794,value:5678})
             lat_point = map_data["last_object_clicked"]["lat"]
             lng_point = map_data["last_object_clicked"]["lng"]
-            value_point = df_point[(df_point["lat"]==lat_point) & (df_point["lng"]==lng_point) ]["value"].values[0]
+            st.write(lat_point)
+            value_point = df_point[(df_point["lat"]==lat_point) & (df_point["lng"]==lng_point)]["value"].values[0]
             st.metric(label="Value", value=value_point)
             
             
