@@ -75,6 +75,7 @@ if selected == "Dashboard":
 
     import folium
     from streamlit_folium import st_folium
+    drive = deta.Drive("project_2_drive_1")
 
 
     "## Unemployment in the United States"
@@ -124,17 +125,19 @@ if selected == "Dashboard":
     with c2:
         try:
             state = map_data["last_active_drawing"]["id"]
-            value = state_data[state_data["State"]==state]["Unemployment"].values[0]
-            st.metric(label="State", value=state)
-            st.metric(label="Unemployment", value=value)
+#             value = state_data[state_data["State"]==state]["Unemployment"].values[0]
+#             st.metric(label="State", value=state)
+#             st.metric(label="Unemployment", value=value)
             
             df_point = pd.DataFrame(data={"lat":28.5011226, "lng":77.4099794, "name":"camera-input-2022-12-14T11_28_04.655Z.jpg"},
                                    index=[0])
             lat_point = map_data["last_object_clicked"]["lat"]
             lng_point = map_data["last_object_clicked"]["lng"]
-            st.write(lat_point)
-            value_point = df_point[(df_point["lat"]==lat_point) & (df_point["lng"]==lng_point)]["name"].values[0]
-            st.metric(label="Value", value=value_point)
+#             st.write(lat_point)
+            img_name = df_point[(df_point["lat"]==lat_point) & (df_point["lng"]==lng_point)]["name"].values[0]
+            st.metric(label="Value", value=img_name)
+            img = drive.get(img_name).read()
+            st.image(img, caption="dai dai")
             
             
         except:
