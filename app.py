@@ -135,8 +135,7 @@ if selected == "Dashboard":
         map_data = st_folium(m, key="fig1", width=700, height=700)
     with c2:
         state = map_data["last_active_drawing"]["id"]
-        #value = state_data[state_data["State"]==state]["Unemployment"][0]
-        #st.metric(label="Unemployment", value=value)
-        st.dataframe(state_data[state_data["State"]==state])
-        st.write(state_data[state_data["State"]==state]["Unemployment"].values[0])
+        value = state_data[state_data["State"]==state]["Unemployment"].values[0]
+        st.metric(label="Unemployment", value=value)
+       
         
