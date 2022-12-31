@@ -120,35 +120,4 @@ if selected == "Dashboard":
 
 
         map_data = st_folium(m, key="fig1", width=700, height=700)
-        st.write(map_data)
-
-#     # get data from map for further processing
-#     map_bounds = Bounds.from_dict(map_data["bounds"])
-
-#     # when a point is clicked, display additional information about the park
-#     try:
-#         point_clicked: Optional[Point] = Point.from_dict(map_data["last_object_clicked"])
-
-#         if point_clicked is not None:
-#             with st.spinner(text="loading image..."):
-#                 for park in parks:
-#                     if park["_point"].is_close_to(point_clicked):
-#                         with c2:
-#                             f"""### _{park["fullName"]}_"""
-#                             park["description"]
-#                             st.image(park["images"][0]["url"], caption = park["images"][0]["caption"])
-#                             st.expander("Show park full details").write(park)
-#     except TypeError:
-#         point_clicked = None
-
-#     # even though there is a c1 reference above, we can do it again
-#     # output will get appended after original content
-#     with c1: 
-
-#         parks_in_view: List[Dict] = []
-#         for park in parks:
-#             if map_bounds.contains_point(park["_point"]):
-#                 parks_in_view.append(park)
-
-#         "Parks visible:", len(parks_in_view)
-#         "Bounding box:", map_bounds
+        st.write(map_data["bounds"])
