@@ -73,29 +73,24 @@ if selected == "Agenda":
         
 if selected == "Dashboard":
     
-   
-    import numpy as np
-
     from streamlit_vega_lite import vega_lite_component, altair_component
-
-    hist_data = pd.DataFrame(np.random.normal(42, 10, (200, 1)), columns=["x"])
-    
+   
 
     @st.cache
     def altair_histogram():
-        brushed = alt.selection_interval(encodings=["x"], name="brushed")
+        brushed = alt.selection(type=“single”, name="brushed")
 
         return (
-            alt.Chart(hist_data)
+            alt.Chart(db_content)
             .mark_bar()
-            .encode(alt.X("x:Q", bin=True), y="count()")
+            .encode(alt.X("buurt:N"), y="count()")
             .add_selection(brushed)
         )
 
     event_dict = altair_component(altair_chart=altair_histogram())
 
-    r = event_dict.get("x")
+    r = event_dict.get("buurt")
     if r:
-        filtered = hist_data[(hist_data.x >= r[0]) & (hist_data.x < r[1])]
+        filtered = db_content[db_content.buurt >= r[0]]
         st.dataframe(filtered)
         st.write(filtered)
