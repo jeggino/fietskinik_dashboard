@@ -27,27 +27,20 @@ db_content = db.fetch().items
 df = pd.DataFrame(db_content)
 
 # ---trial---
-import base64
+import time
 
-@st.cache(allow_output_mutation=True)
-def get_base64_of_bin_file(bin_file):
-    with open(bin_file, 'rb') as f:
-        data = f.read()
-    return base64.b64encode(data).decode()
+@st.cache(suppress_st_warning=True)  # 👈 Changed this
+def expensive_computation(a, b):
+    # 👇 Added this
+    st.write("Cache miss: expensive_computation(", a, ",", b, ") ran")
+    time.sleep(2)  # This makes the function take 2s to run
+    return a * b
 
-def set_png_as_page_bg(png_file):
-    bin_str = get_base64_of_bin_file(png_file)
-    page_bg_img = '''
-    <style>
-    body {
-    background-image: url("data:image/png;base64,%s");
-    background-size: cover;
-    }
-    </style>
-    ''' % bin_str
-    
-    st.markdown(page_bg_img, unsafe_allow_html=True)
-    return
+a = 2
+b = 21
+res = expensive_computation(a, b)
+
+st.write("Result:", res)
 
 
 
