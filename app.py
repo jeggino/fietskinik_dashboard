@@ -82,4 +82,4 @@ if selected == "Dashboard":
     
 
     plot = st.altair_chart(chart, use_container_width=True)
-    st.write(plot)
+    st.json(plot)
