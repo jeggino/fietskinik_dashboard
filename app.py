@@ -138,5 +138,5 @@ if selected == "Dashboard":
         #value = state_data[state_data["State"]==state]["Unemployment"][0]
         #st.metric(label="Unemployment", value=value)
         st.dataframe(state_data[state_data["State"]==state])
-        st.write(state_data[state_data["State"]==state]["Unemployment"][0])
+        st.write(state_data[state_data["State"]==state]["Unemployment"].values[0])
         
