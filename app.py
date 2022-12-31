@@ -125,16 +125,11 @@ if selected == "Dashboard":
         
     with c2:
         try:
-#             state = map_data["last_active_drawing"]["id"]
-#             value = state_data[state_data["State"]==state]["Unemployment"].values[0]
-#             st.metric(label="State", value=state)
-#             st.metric(label="Unemployment", value=value)
             db_content = db.fetch().items
             df_point = pd.DataFrame(db_content)
             lat_point = map_data["last_object_clicked"]["lat"]
             lng_point = map_data["last_object_clicked"]["lng"]
-#             st.write(lat_point)
-            img_name = df_point[(df_point["lat"]==lat_point) & (df_point["lng"]==lng_point)]["name"].values[0]
+            img_name = df_point[(df_point["lat"]==lat_point) & (df_point["lng"]==lng_point)]["image_name"].values[0]
             st.metric(label="Value", value=img_name)
             img = drive.get(img_name).read()
             st.image(img, caption="dai dai")
