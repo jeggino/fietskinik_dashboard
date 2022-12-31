@@ -5,19 +5,19 @@ import pandas as pd
 import altair as alt
 
 
+@st.cache(suppress_st_warning=True)
+passwords = ["fietskliniek"]
+password_empty = st.empty()
+password = password_empty.text_input('password', placeholder='insert password ...',type="password", label_visibility="collapsed")
 
-# passwords = ["fietskliniek"]
-# password_empty = st.empty()
-# password = password_empty.text_input('password', placeholder='insert password ...',type="password", label_visibility="collapsed")
+if not password:
+    st.stop()
 
-# if not password:
-#     st.stop()
-
-# elif password not in passwords:
-#     st.warning('The password is not correct', icon="⚠️")
-#     st.stop()
+elif password not in passwords:
+    st.warning('The password is not correct', icon="⚠️")
+    st.stop()
     
-# password_empty.empty()
+password_empty.empty()
 time_shift_choice = ["14-16", "16-18", "18-20"]
 
 # Connect to Deta Base with your Project Key
@@ -27,20 +27,20 @@ db_content = db.fetch().items
 df = pd.DataFrame(db_content)
 
 # ---trial---
-import time
+# import time
 
-@st.cache(suppress_st_warning=True)  # 👈 Changed this
-def expensive_computation(a, b):
-    # 👇 Added this
-    st.write("Cache miss: expensive_computation(", a, ",", b, ") ran")
-    time.sleep(2)  # This makes the function take 2s to run
-    return a * b
+# @st.cache(suppress_st_warning=True)  # 👈 Changed this
+# def expensive_computation(a, b):
+#     # 👇 Added this
+#     st.write("Cache miss: expensive_computation(", a, ",", b, ") ran")
+#     time.sleep(2)  # This makes the function take 2s to run
+#     return a * b
 
-a = 2
-b = 21
-res = expensive_computation(a, b)
+# a = 2
+# b = 21
+# res = expensive_computation(a, b)
 
-st.write("Result:", res)
+# st.write("Result:", res)
 
 
 
