@@ -90,7 +90,8 @@ if selected == "Dashboard":
     event_dict = altair_component(altair_chart=altair_histogram())
 
     r = event_dict.get("buurt")
+    st.write(r)
     if r:
-        filtered = df[df.buurt >= r[0]]
+        filtered = df[df.buurt == r]
         st.dataframe(filtered)
         st.write(filtered)
