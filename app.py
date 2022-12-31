@@ -73,19 +73,16 @@ if selected == "Agenda":
         
 if selected == "Dashboard":
     
-    from streamlit_vega_lite import vega_lite_component, altair_component
-   
+    
+    
+    brushed = alt.selection_single()
 
-    @st.cache
-    def altair_histogram():
-        brushed = alt.selection_single()
+    
+    chart = alt.Chart(df)
+    .mark_bar()
+    .encode(alt.X("buurt:N"), y="count()")
+    .add_selection(brushed)
+    
 
-        return (
-            alt.Chart(df)
-            .mark_bar()
-            .encode(alt.X("buurt:N"), y="count()")
-            .add_selection(brushed)
-        )
-
-    plot = st.altair_chart(altair_histogram(), use_container_width=True)
+    plot = st.altair_chart(chart, use_container_width=True)
     st.write(plot)
