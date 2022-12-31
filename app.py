@@ -5,7 +5,7 @@ import pandas as pd
 import altair as alt
 
 
-@st.cache(suppress_st_warning=True)
+# ---INSET PASSWORD---
 passwords = ["fietskliniek"]
 password_empty = st.empty()
 password = password_empty.text_input('password', placeholder='insert password ...',type="password", label_visibility="collapsed")
@@ -18,31 +18,15 @@ elif password not in passwords:
     st.stop()
     
 password_empty.empty()
-time_shift_choice = ["14-16", "16-18", "18-20"]
 
-# Connect to Deta Base with your Project Key
+
+# ---Connect to Deta Base with your Project Key---
 deta = Deta(st.secrets["deta_key"])
 db = deta.Base("project_fietskliniek")
 db_content = db.fetch().items
 df = pd.DataFrame(db_content)
 
 # ---trial---
-# import time
-
-# @st.cache(suppress_st_warning=True)  # 👈 Changed this
-# def expensive_computation(a, b):
-#     # 👇 Added this
-#     st.write("Cache miss: expensive_computation(", a, ",", b, ") ran")
-#     time.sleep(2)  # This makes the function take 2s to run
-#     return a * b
-
-# a = 2
-# b = 21
-# res = expensive_computation(a, b)
-
-# st.write("Result:", res)
-
-
 
 
 # --- NAVIGATION MENU ---
@@ -52,6 +36,9 @@ selected = option_menu(
     icons=["bi-journal-check", "bi bi-bar-chart-line-fill"],  # https://icons.getbootstrap.com/
     orientation="horizontal",
 )
+
+# ---VARIABLES---
+time_shift_choice = ["14-16", "16-18", "18-20"]
 
 if selected == "Agenda":
     
