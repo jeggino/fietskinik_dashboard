@@ -1,7 +1,7 @@
 deta
 pandas
 streamlit_option_menu
-streamlit==1.11.1
+streamlit
 streamlit-folium>=0.8.1
 requests
 dataclasses
