@@ -72,6 +72,14 @@ if selected == "Agenda":
         time_shift_empty.empty()
         
 if selected == "Dashboard":
+    
+    import pandas_profiling
+    from streamlit_pandas_profiling import st_profile_report
+
+    
+    pr = df.profile_report()
+
+    st_profile_report(pr)
         
     brushed = alt.selection_single()
     chart = alt.Chart(df).mark_bar().encode(alt.X("buurt:N"), y="count()").add_selection(brushed)
