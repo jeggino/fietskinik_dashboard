@@ -103,20 +103,31 @@ if selected == "Dashboard":
     # layout map
     with c1:
         """(_Click on a pin to bring up more information_)"""
-        m = folium.Map(location=[39.949610, -75.150282], zoom_start=4)
+        # getting the data
+        url = (
+            "https://raw.githubusercontent.com/python-visualization/folium/master/examples/data"
+        )
+        state_geo = f"{url}/us-states.json"
+        state_unemployment = f"{url}/US_Unemployment_Oct2012.csv"
+        state_data = pd.read_csv(state_unemployment)
+        m = folium.Map(location = [40, -95], zoom_start = 4)
+        folium.Choropleth(
+   
+              # geographical locations
+            geo_data = state_geo,                    
+            name = "choropleth",
 
-#         for park in parks:
-#             popup = folium.Popup(f"""
-#                       <a href="{park["url"]}" target="_blank">{park["fullName"]}</a><br>
-#                       <br>
-#                       {park["operatingHours"][0]["description"]}<br>
-#                       <br>
-#                       Phone: {park["contacts"]["phoneNumbers"][0]["phoneNumber"]}<br>
-#                       """,
-#                       max_width = 250)
-#             folium.Marker(
-#                 [park["latitude"], park["longitude"]], popup=popup
-#             ).add_to(m)
+              # the data set we are using
+            data = state_data,                       
+            columns = ["State", "Unemployment"],    
+
+              # YlGn refers to yellow and green
+            fill_color = "YlGn",                     
+            fill_opacity = 0.7,
+            line_opacity = .1,
+              key_on = "feature.id",
+            legend_name = "Unemployment Rate (%)",
+        ).add_to(m)      
 
 
         map_data = st_folium(m, key="fig1", width=700, height=700)
