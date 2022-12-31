@@ -78,7 +78,7 @@ if selected == "Dashboard":
 
     @st.cache
     def altair_histogram():
-        brushed = alt.selection(type="single", name="brushed")
+        brushed = alt.selection_single(encodingsList=["buurt"], name="brushed")
 
         return (
             alt.Chart(df)
