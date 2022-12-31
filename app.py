@@ -86,13 +86,13 @@ if selected == "Dashboard":
 
     ---
     """
-
+    
+    """(_Click on a pin to bring up more information_)"""
+    
     # define layout
     c1, c2 = st.columns([3,1])
-
     # layout map
     with c1:
-        """(_Click on a pin to bring up more information_)"""
         # getting the data
         url = (
             "https://raw.githubusercontent.com/python-visualization/folium/master/examples/data"
