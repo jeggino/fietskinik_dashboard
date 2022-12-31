@@ -78,10 +78,7 @@ if selected == "Dashboard":
     brushed = alt.selection_single()
 
     
-    chart = alt.Chart(df)
-    .mark_bar()
-    .encode(alt.X("buurt:N"), y="count()")
-    .add_selection(brushed)
+    chart = alt.Chart(df).mark_bar().encode(alt.X("buurt:N"), y="count()").add_selection(brushed)
     
 
     plot = st.altair_chart(chart, use_container_width=True)
