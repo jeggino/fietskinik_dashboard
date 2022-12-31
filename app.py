@@ -128,12 +128,12 @@ if selected == "Dashboard":
             st.metric(label="State", value=state)
             st.metric(label="Unemployment", value=value)
             
-            df_point = pd.DataFrame(data={"lat":28.5011226, "lng":77.4099794, "value":5678},
+            df_point = pd.DataFrame(data={"lat":28.5011226, "lng":77.4099794, "name":"camera-input-2022-12-14T11_28_04.655Z.jpg"},
                                    index=[0])
             lat_point = map_data["last_object_clicked"]["lat"]
             lng_point = map_data["last_object_clicked"]["lng"]
             st.write(lat_point)
-            value_point = df_point[(df_point["lat"]==lat_point) & (df_point["lng"]==lng_point)]["value"].values[0]
+            value_point = df_point[(df_point["lat"]==lat_point) & (df_point["lng"]==lng_point)]["name"].values[0]
             st.metric(label="Value", value=value_point)
             
             
