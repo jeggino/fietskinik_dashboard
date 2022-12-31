@@ -54,7 +54,7 @@ selected = option_menu(
 )
 
 if selected == "Agenda":
-    set_png_as_page_bg('My project.png')
+    
     date =  str(st.date_input("Choose a date"))
     df_filter_data = df[df.date==date]
 
