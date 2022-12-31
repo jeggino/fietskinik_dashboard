@@ -76,6 +76,7 @@ if selected == "Dashboard":
     import folium
     from streamlit_folium import st_folium
     drive = deta.Drive("project_2_drive_1")
+    db_point = deta.Base("project_1")
 
 
     "## Unemployment in the United States"
@@ -117,20 +118,19 @@ if selected == "Dashboard":
             key_on = "feature.id"
         ).add_to(m)     
         
-        folium.Marker([28.5011226, 77.4099794],popup = ' Geeksforgeeks.org ').add_to(m)
+        folium.Marker([52.3708743,4.9314713],popup = ' Geeksforgeeks.org ').add_to(m)
 
         map_data = st_folium(m, key="fig1")
         st.write(map_data)
         
     with c2:
         try:
-            state = map_data["last_active_drawing"]["id"]
+#             state = map_data["last_active_drawing"]["id"]
 #             value = state_data[state_data["State"]==state]["Unemployment"].values[0]
 #             st.metric(label="State", value=state)
 #             st.metric(label="Unemployment", value=value)
-            
-            df_point = pd.DataFrame(data={"lat":28.5011226, "lng":77.4099794, "name":"camera-input-2022-12-14T11_28_04.655Z.jpg"},
-                                   index=[0])
+            db_content = db.fetch().items
+            df_point = pd.DataFrame(db_content)
             lat_point = map_data["last_object_clicked"]["lat"]
             lng_point = map_data["last_object_clicked"]["lng"]
 #             st.write(lat_point)
