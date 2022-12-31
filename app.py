@@ -81,7 +81,6 @@ if selected == "Dashboard":
     import streamlit as st
     from streamlit_folium import st_folium
 
-    st.set_page_config(layout="wide")
 
     @st.experimental_singleton
     def get_data() -> List[Dict]:
