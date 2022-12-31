@@ -120,6 +120,7 @@ if selected == "Dashboard":
 
 
         map_data = st_folium(m, key="fig1", width=700, height=700)
+        st.write(map_data)
 
 #     # get data from map for further processing
 #     map_bounds = Bounds.from_dict(map_data["bounds"])
