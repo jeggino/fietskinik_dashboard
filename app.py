@@ -5,19 +5,19 @@ import pandas as pd
 import altair as alt
 
 
-# # ---INSET PASSWORD---
-# passwords = ["a"]
-# password_empty = st.empty()
-# password = password_empty.text_input('password', placeholder='insert password ...',type="password", label_visibility="collapsed")
+# ---INSET PASSWORD---
+passwords = ["a"]
+password_empty = st.empty()
+password = password_empty.text_input('password', placeholder='insert password ...',type="password", label_visibility="collapsed")
 
-# if not password:
-#     st.stop()
+if not password:
+    st.stop()
 
-# elif password not in passwords:
-#     st.warning('The password is not correct', icon="⚠️")
-#     st.stop()
+elif password not in passwords:
+    st.warning('The password is not correct', icon="⚠️")
+    st.stop()
     
-# password_empty.empty()
+password_empty.empty()
 
 
 # ---Connect to Deta Base with your Project Key---
@@ -72,18 +72,10 @@ if selected == "Agenda":
         time_shift_empty.empty()
         
 if selected == "Dashboard":
-    
-    
 
     import folium
     from streamlit_folium import st_folium
 
-
-    
-
-    ############################# 
-    # Streamlit app
-    #############################
 
     "## Unemployment in the United States"
 
@@ -97,8 +89,6 @@ if selected == "Dashboard":
 
     # define layout
     c1, c2 = st.columns([3,1])
-
-
 
     # layout map
     with c1:
@@ -126,8 +116,8 @@ if selected == "Dashboard":
             key_on = "feature.id"
         ).add_to(m)      
 
-
-        map_data = st_folium(m, key="fig1", width=700, height=700)
+        map_data = st_folium(m, key="fig1")
+        
     with c2:
         try:
             state = map_data["last_active_drawing"]["id"]
@@ -135,6 +125,6 @@ if selected == "Dashboard":
             st.metric(label="State", value=state)
             st.metric(label="Unemployment", value=value)
         except:
-            st.write("clicca boludo")
+             st.info('Click on a State to see the uneplonment', icon="ℹ️")
        
         
