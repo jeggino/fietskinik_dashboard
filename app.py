@@ -107,7 +107,7 @@ if selected == "Dashboard":
                         control = True,
                         marker = folium.CircleMarker(radius = 3, # Radius in metres
                                                    weight = 0, #outline weight
-                                                   fill_color = lambda x: {fillColor':'red' if x['properties']['species'] == 'Ischnura elegans' else 'green','fillOpacity':0.75}, 
+                                                   fill_color = lambda x: {'fillColor':'red' if x['properties']['species'] == 'Ischnura elegans' else 'green','fillOpacity':0.75}, 
                                                    fill_opacity = 1),
                         tooltip = folium.GeoJsonTooltip(fields = ['image_name'],
                                                         aliases=['Image: '],
