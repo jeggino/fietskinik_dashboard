@@ -103,7 +103,7 @@ if selected == "Dashboard":
     with c1:     
         m = folium.Map(location = [40, -95], zoom_start = 4)
         pol_m = gdf.to_json()
-        style1 = lambda x: {'fillColor':'red' if x['properties']['species'] == 'Ischnura elegans' else 'green'}
+        for i in
         folium.GeoJson(pol_m,
                 control = True,
                 marker = folium.Marker(icon=folium.Icon(color="green")),
@@ -127,5 +127,7 @@ if selected == "Dashboard":
             
         except:
              st.info('Click on a State to see the uneplonment', icon="ℹ️")
+    
+    gdf.explore("species", cmap="Blues", tiles="CartoDB positron")
        
         
