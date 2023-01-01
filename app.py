@@ -103,9 +103,8 @@ if selected == "Dashboard":
     with c1:     
         m = folium.Map(location = [40, -95], zoom_start = 4)
         pol_m = gdf.to_json()
-
         pol = folium.GeoJson(pol_m,
-                            control = False,
+                            control = True,
                             marker = folium.Marker(),
                             tooltip = folium.GeoJsonTooltip(fields = ['image_name'],
                                                             aliases=['Image: '],
@@ -116,7 +115,6 @@ if selected == "Dashboard":
                             ).add_to(m)
 
         map_data = st_folium(m, key="fig1")
-        st.write(map_data)
         
     with c2:
         try:
