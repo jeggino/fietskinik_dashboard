@@ -128,7 +128,7 @@ if selected == "Dashboard":
         except:
              st.info('Click on a State to see the uneplonment', icon="ℹ️")
     
-    map = gdf.explore("species", cmap="Blues")
+    map = gdf.explore("species", cmap="Blues", marker_type="marker")
     map_2 = st_folium(map, key="fig1")
     st.write(map_2)
        
