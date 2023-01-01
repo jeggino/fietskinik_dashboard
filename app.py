@@ -101,34 +101,34 @@ if selected == "Dashboard":
     # define layout
     c1, c2 = st.columns([3,1])
         
-    with c1:     
-        m = folium.Map(location = [40, -95], zoom_start = 4)
-        pol_m = gdf.to_json()
-        folium.GeoJson(pol_m,
-                control = True,
-                marker = folium.Marker(icon=folium.Icon(color="green")),
-                tooltip = folium.GeoJsonTooltip(fields = ['image_name'],
-                                                aliases=['Image: '],
-                                                style = ("background-color: white; color: #333333; font-family: arial; font-size: 12px; padding: 10px;"),
-                                                sticky = True)
-                ).add_to(m)
-        map_data = st_folium(m, key="fig1")
+#     with c1:     
+#         m = folium.Map(location = [40, -95], zoom_start = 4)
+#         pol_m = gdf.to_json()
+#         folium.GeoJson(pol_m,
+#                 control = True,
+#                 marker = folium.Marker(icon=folium.Icon(color="green")),
+#                 tooltip = folium.GeoJsonTooltip(fields = ['image_name'],
+#                                                 aliases=['Image: '],
+#                                                 style = ("background-color: white; color: #333333; font-family: arial; font-size: 12px; padding: 10px;"),
+#                                                 sticky = True)
+#                 ).add_to(m)
+#         map_data = st_folium(m, key="fig1")
 
         
-    with c2:
-        try:
-            properties = map_data["last_active_drawing"]["properties"]
-            st.metric(label="Date", value=properties["date"])
-            st.metric(label="Species", value=properties["species"])
-            st.metric(label="Number of specimens", value=properties["n_specimens"])
-            img = drive.get(properties["image_name"]).read()
-            st.image(img, caption=properties["comment"])
+#     with c2:
+#         try:
+#             properties = map_data["last_active_drawing"]["properties"]
+#             st.metric(label="Date", value=properties["date"])
+#             st.metric(label="Species", value=properties["species"])
+#             st.metric(label="Number of specimens", value=properties["n_specimens"])
+#             img = drive.get(properties["image_name"]).read()
+#             st.image(img, caption=properties["comment"])
             
             
-        except:
-             st.info('Click on a State to see the uneplonment', icon="ℹ️")
+#         except:
+#              st.info('Click on a State to see the uneplonment', icon="ℹ️")
     
-    map = gdf.explore("species", cmap="Blues", marker_type="marker")
+    map = gdf.explore("species", cmap="Blues", marker_type="marker", tiles="OpenStreetMap")
     map_2 = st_folium(map, key="fig1")
     st.write(map_2)
        
