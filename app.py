@@ -106,7 +106,7 @@ if selected == "Dashboard":
         style1 = lambda x: {'fillColor':'red' if x['properties']['species'] == 'Ischnura elegans' else 'green'}
         folium.GeoJson(pol_m,
                 control = True,
-                marker = folium.MArker(icon=folium.Icon(color="green"),
+                marker = folium.MArker(icon=folium.Icon(color="green")),
                 tooltip = folium.GeoJsonTooltip(fields = ['image_name'],
                                                 aliases=['Image: '],
                                                 style = ("background-color: white; color: #333333; font-family: arial; font-size: 12px; padding: 10px;"),
