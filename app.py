@@ -93,7 +93,7 @@ if selected == "Dashboard":
 
     We can take data about each park and display it on the map _conditionally_ based on whether it is in the viewport. 
     """
-    ---
+    "---"
     
     """(_Click on a pin to bring up more information_)"""
     
