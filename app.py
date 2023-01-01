@@ -109,11 +109,9 @@ if selected == "Dashboard":
                             tooltip = folium.GeoJsonTooltip(fields = ['image_name'],
                                                             aliases=['Image: '],
                                                             style = ("background-color: white; color: #333333; font-family: arial; font-size: 12px; padding: 10px;"),
-                                                            sticky = True,
-                                                            name='group on map',
-                                                            localize=True
-                            )
-
+                                                            sticky = True),
+                            name='group on map',
+                            localize=True
                             ).add_to(m)
 
         map_data = st_folium(m, key="fig1")
