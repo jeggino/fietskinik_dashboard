@@ -3,7 +3,5 @@ pandas
 streamlit_option_menu
 streamlit
 streamlit-folium>=0.8.1
-requests
-dataclasses
-typing
+geopandas
 altair
