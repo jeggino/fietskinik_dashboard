@@ -103,7 +103,6 @@ if selected == "Dashboard":
     with c1:     
         m = folium.Map(location = [40, -95], zoom_start = 4)
         pol_m = gdf.to_json()
-        for i in
         folium.GeoJson(pol_m,
                 control = True,
                 marker = folium.Marker(icon=folium.Icon(color="green")),
