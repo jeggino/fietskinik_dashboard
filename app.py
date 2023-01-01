@@ -81,7 +81,7 @@ if selected == "Dashboard":
     db_point = deta.Base("project_1")
     db_content = db_point.fetch().items
     df_point = pd.DataFrame(db_content)
-    gdf = geopandas.GeoDataFrame(df_point, geometry=geopandas.points_from_xy(df_point.lng, df_point.lat))
+    gdf = geopandas.GeoDataFrame(df_point, geometry=geopandas.points_from_xy(df_point.lon, df_point.lat))
     
 
 
