@@ -129,7 +129,7 @@ if selected == "Dashboard":
 #              st.info('Click on a State to see the uneplonment', icon="ℹ️")
     with c1: 
         m = folium.Map(location = [40, -95], zoom_start = 4)
-        map = gdf.explore(column="species", cmap="Reds",m=m,categorical=True)
+        map = gdf.explore(column="species", cmap="Reds",m=m,categorical=True, marker_type="marker")
         map_2 = st_folium(map, key="fig1")
         
     with c2: 
