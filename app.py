@@ -103,12 +103,12 @@ if selected == "Dashboard":
     with c1:     
         m = folium.Map(location = [40, -95], zoom_start = 4)
         pol_m = gdf.to_json()
+        style1 = lambda x: {'fillColor':'red' if x['properties']['species'] == 'Ischnura elegans' else 'green'}
         folium.GeoJson(pol_m,
                 control = True,
                 marker = folium.CircleMarker(radius = 3, # Radius in metres
                                             weight = 0, #outline weight
-                                            fill_color = 'green', 
-                                            fill_opacity = 1),
+                                            style_function=style1),
                 tooltip = folium.GeoJsonTooltip(fields = ['image_name'],
                                                 aliases=['Image: '],
                                                 style = ("background-color: white; color: #333333; font-family: arial; font-size: 12px; padding: 10px;"),
