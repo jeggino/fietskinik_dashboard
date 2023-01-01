@@ -127,8 +127,8 @@ if selected == "Dashboard":
             
 #         except:
 #              st.info('Click on a State to see the uneplonment', icon="ℹ️")
-    
-    map = gdf.explore("species", cmap="Blues", tiles="OpenStreetMap")
+    m = folium.Map(location = [40, -95], zoom_start = 4)
+    map = gdf.explore("species", cmap="Reds",m=m)
     map_2 = st_folium(map, key="fig1")
 #     st.write(map_2)
     try:
