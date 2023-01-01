@@ -106,10 +106,7 @@ if selected == "Dashboard":
 
         pol = folium.GeoJson(pol_m,
                             control = False,
-                            marker = folium.CircleMarker(radius = 3, # Radius in metres
-                                                   weight = 0, #outline weight
-                                                   fill_color = '#000000', 
-                                                   fill_opacity = 1),
+                            marker = folium.Marker(),
                             tooltip = folium.GeoJsonTooltip(fields = ['image_name'],
                                                             aliases=['Image: '],
                                                             style = ("background-color: white; color: #333333; font-family: arial; font-size: 12px; padding: 10px;"),
