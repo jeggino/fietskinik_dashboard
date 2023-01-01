@@ -128,7 +128,8 @@ if selected == "Dashboard":
 #         except:
 #              st.info('Click on a State to see the uneplonment', icon="ℹ️")
     
-    map = gdf.explore("species", cmap="Blues", marker_type="marker", tiles="OpenStreetMap")
+    map = gdf.explore("species", cmap="Blues", marker_type="marker", tiles="OpenStreetMap",
+                     style_kwds={"style_function":lambda x: {"color":"red" if x["properties"]["last_active_drawing"]["species"]<"Anax imperator" else "blue"}})
     map_2 = st_folium(map, key="fig1")
     st.write(map_2)
        
