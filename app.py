@@ -101,20 +101,19 @@ if selected == "Dashboard":
     c1, c2 = st.columns([3,1])
         
     with c1:     
-         m = folium.Map(location = [40, -95], zoom_start = 4)
-         pol_m = gdf.to_json()
-         folium.GeoJson(pol_m,
-                        control = True,
-                        marker = folium.CircleMarker(radius = 3, # Radius in metres
-                                                   weight = 0, #outline weight
-                                                   fill_color = lambda x: {'fillColor':'red' if x['properties']['species'] == 'Ischnura elegans' else 'green','fillOpacity':0.75}, 
-                                                   fill_opacity = 1),
-                        tooltip = folium.GeoJsonTooltip(fields = ['image_name'],
-                                                        aliases=['Image: '],
-                                                        style = ("background-color: white; color: #333333; font-family: arial; font-size: 12px; padding: 10px;"),
-                                                         sticky = True)
-                        ).add_to(m)
-        
+        m = folium.Map(location = [40, -95], zoom_start = 4)
+        pol_m = gdf.to_json()
+        folium.GeoJson(pol_m,
+                control = True,
+                marker = folium.CircleMarker(radius = 3, # Radius in metres
+                                            weight = 0, #outline weight
+                                            fill_color = lambda x: {'fillColor':'red' if x['properties']['species'] == 'Ischnura elegans' else 'green','fillOpacity':0.75}, 
+                                            fill_opacity = 1),
+                tooltip = folium.GeoJsonTooltip(fields = ['image_name'],
+                                                aliases=['Image: '],
+                                                style = ("background-color: white; color: #333333; font-family: arial; font-size: 12px; padding: 10px;"),
+                                                sticky = True)
+                ).add_to(m)
         map_data = st_folium(m, key="fig1")
 
         
