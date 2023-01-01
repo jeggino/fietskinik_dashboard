@@ -3,6 +3,7 @@ from streamlit_option_menu import option_menu
 from deta import Deta
 import pandas as pd
 import altair as alt
+import mapclassify
 
 
 # ---INSET PASSWORD---
@@ -127,6 +128,7 @@ if selected == "Dashboard":
         except:
              st.info('Click on a State to see the uneplonment', icon="ℹ️")
     
-    gdf.explore("species", cmap="Blues", tiles="CartoDB positron")
+    map = gdf.explore("species", cmap="Blues")
+    st.write(map)
        
         
