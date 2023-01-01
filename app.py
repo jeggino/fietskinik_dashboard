@@ -120,9 +120,12 @@ if selected == "Dashboard":
         
     with c2:
         try:
-            img_name = map_data["last_active_drawing"]["properties"]["image_name"]
-            img = drive.get(img_name).read()
-            st.image(img, caption="dai dai")
+            properties = map_data["last_active_drawing"]["properties"]
+            st.metric(label="Date", value=properties["date"])
+            st.metric(label="Species", value=properties["species"])
+            st.metric(label="Number of specimens", value=properties["n_specimens"])
+            img = drive.get(properties["image_name"]).read()
+            st.image(img, caption=properties["comment"])
             
             
         except:
