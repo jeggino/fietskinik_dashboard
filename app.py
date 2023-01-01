@@ -127,20 +127,21 @@ if selected == "Dashboard":
             
 #         except:
 #              st.info('Click on a State to see the uneplonment', icon="ℹ️")
-    m = folium.Map(location = [40, -95], zoom_start = 4)
-    map = gdf.explore("species", cmap="Reds",m=m)
-    map_2 = st_folium(map, key="fig1")
-#     st.write(map_2)
-    try:
-        properties = map_2["last_active_drawing"]["properties"]
-        st.metric(label="Date", value=properties["date"])
-        st.metric(label="Species", value=properties["species"])
-        st.metric(label="Number of specimens", value=properties["n_specimens"])
-        img = drive.get(properties["image_name"]).read()
-        st.image(img, caption=properties["comment"])
+    with c1: 
+        m = folium.Map(location = [40, -95], zoom_start = 4)
+        map = gdf.explore(column="species", cmap="Reds",m=m,categorical=True)
+        map_2 = st_folium(map, key="fig1")
+        
+    with c2: 
+        try:
+            properties = map_2["last_active_drawing"]["properties"]
+            st.metric(label="Date", value=properties["date"])
+            st.metric(label="Species", value=properties["species"])
+            st.metric(label="Number of specimens", value=properties["n_specimens"])
+            img = drive.get(properties["image_name"]).read()
+            st.image(img, caption=properties["comment"])
 
-
-    except:
-         st.info('Click on a State to see the uneplonment', icon="ℹ️")
+        except:
+             st.info('Click on a point to get information', icon="ℹ️")
        
         
