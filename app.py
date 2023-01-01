@@ -123,7 +123,7 @@ if selected == "Dashboard":
         
     with c2:
         try:
-            img_name = map_data["last_active_drawing"]["image_name"]
+            img_name = map_data["last_active_drawing"]["properties"]["image_name"]
             img = drive.get(img_name).read()
             st.image(img, caption="dai dai")
             
