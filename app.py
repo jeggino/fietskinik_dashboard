@@ -7,7 +7,7 @@ import mapclassify
 
 
 # ---INSET PASSWORD---
-passwords = ["a"]
+passwords = ["fietskliniek"]
 password_empty = st.empty()
 password = password_empty.text_input('password', placeholder='insert password ...',type="password", label_visibility="collapsed")
 
