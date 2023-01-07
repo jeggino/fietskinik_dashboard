@@ -74,47 +74,6 @@ if selected == "Agenda":
         
 if selected == "Dashboard":
 
-    import folium
-    from streamlit_folium import st_folium
-    import geopandas
-    
-    drive = deta.Drive("project_2_drive_1")
-    db_point = deta.Base("project_1")
-    db_content = db_point.fetch().items
-    df_point = pd.DataFrame(db_content)
-    gdf = geopandas.GeoDataFrame(df_point, geometry=geopandas.points_from_xy(df_point.lon, df_point.lat))
-    
-
-
-    "## Unemployment in the United States"
-
-    """
-    The National Parks Service provides an [API](https://www.nps.gov/subjects/digital/nps-data-api.htm) to programmatically explore NPS data. 
-
-    We can take data about each park and display it on the map _conditionally_ based on whether it is in the viewport. 
-    """
-    "---"
-    
-    """(_Click on a pin to bring up more information_)"""
-    
-    # define layout
-    c1, c2 = st.columns([3,1])
-        
-    with c1: 
-        m = folium.Map(location = [40, -95], zoom_start = 4)
-        map = gdf.explore(column="species", cmap="Reds",m=m,categorical=True, marker_type="marker")
-        map_2 = st_folium(map, key="fig1")
-        
-    with c2: 
-        try:
-            properties = map_2["last_active_drawing"]["properties"]
-            st.metric(label="Date", value=properties["date"])
-            st.metric(label="Species", value=properties["species"])
-            st.metric(label="Number of specimens", value=properties["n_specimens"])
-            img = drive.get(properties["image_name"]).read()
-            st.image(img, caption=properties["comment"])
-
-        except:
-             st.info('Click on a point to get information', icon="ℹ️")
+    st.info("... let do later!", icon=🚲)
        
         
