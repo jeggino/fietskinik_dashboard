@@ -74,6 +74,6 @@ if selected == "Agenda":
         
 if selected == "Dashboard":
 
-    st.info("... let do later!", icon=🚲)
+    st.info("... let do later!", icon="🚲")
        
         
