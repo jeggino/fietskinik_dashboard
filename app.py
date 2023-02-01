@@ -44,7 +44,7 @@ time_shift_choice = ["14-16", "16-18", "18-20"]
 if selected == "Agenda":
     
     date =  str(st.date_input("Choose a date"))
-    df_filter_data = df[df.date==date]
+    df_filter_data = df[df["DAte"]==date]
 
     # Using "with" notation
     if len(df_filter_data)==0:
@@ -55,11 +55,11 @@ if selected == "Agenda":
       time_shift_empty = st.empty()
       time_shift = time_shift_empty.radio('Chose a time shift',time_shift_choice, horizontal=True)
 
-      df_filter_time = df_filter_data[df_filter_data.time_shift==time_shift].sort_values("time_shift").reset_index(drop=True)
+      df_filter_time = df_filter_data[df_filter_data["Time shift"]==time_shift].sort_values("Time shift").reset_index(drop=True)
 
-      n_1 = len(df_filter_data[df_filter_data.time_shift=="14-16"])
-      n_2 = len(df_filter_data[df_filter_data.time_shift=="16-18"])
-      n_3 = len(df_filter_data[df_filter_data.time_shift=="18-20"])
+      n_1 = len(df_filter_data[df_filter_data["Time shift"] == "14-16"])
+      n_2 = len(df_filter_data[df_filter_data["Time shift"] == "16-18"])
+      n_3 = len(df_filter_data[df_filter_data["Time shift"] == "18-20"])
 
       col2.metric("14-16", f"{n_1} clients")
       col3.metric("16-18", f"{n_2} clients")
