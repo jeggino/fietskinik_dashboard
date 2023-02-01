@@ -44,7 +44,7 @@ time_shift_choice = ["14-16", "16-18", "18-20"]
 if selected == "Agenda":
     
     date =  str(st.date_input("Choose a date"))
-    df_filter_data = df[df["DAte"]==date]
+    df_filter_data = df[df["Date"]==date]
 
     # Using "with" notation
     if len(df_filter_data)==0:
