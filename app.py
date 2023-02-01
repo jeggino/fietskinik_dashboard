@@ -66,8 +66,8 @@ if selected == "Agenda":
       col4.metric("18-20", f"{n_3} clients")
 
       placeholder = st.empty()
-      placeholder.dataframe(df_filter_time[["name", "e_mail", "number", "buurt", "expertise", "type_bike", "materiaal", "opmerking"]].T, use_container_width=True)
-
+      placeholder.dataframe(df_filter_time.T, use_container_width=True)
+# [["name", "e_mail", "number", "buurt", "expertise", "type_bike", "materiaal", "opmerking"]]
       if not st.checkbox('Show table'):
         placeholder.empty()
         time_shift_empty.empty()
