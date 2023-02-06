@@ -95,7 +95,7 @@ if selected == "Agenda":
                     df_filter_week_1 = df_filter_week_1[df_filter_week_1["Time shift"]==option_time]
 
                     columns = []
-                    df_show = df_filter_week_1[["Date", "Day", "Time shift", "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
+                    df_show = df_filter_week_1[[ "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
                                                  "Type of reparation", "Remarks"]].T
                     if len(df_filter_week_1)==0:
                         st.info('No appointments', icon="ℹ️")
@@ -126,7 +126,7 @@ if selected == "Agenda":
                     df_filter_week_1 = df_filter_week_1[df_filter_week_1["Time shift"]==option_time]
                                
                     columns = []
-                    df_show = df_filter_week_1[["Date", "Day", "Time shift", "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
+                    df_show = df_filter_week_1[["Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
                                                  "Type of reparation", "Remarks"]].T
                     if len(df_filter_week_1)==0:
                         st.info('No appointments', icon="ℹ️")
@@ -174,7 +174,7 @@ if selected == "Agenda":
                     df_filter_week_2 = df_filter_week_2[df_filter_week_2["Time shift"]==option_time]
 
                     columns = []
-                    df_show = df_filter_week_2[["Date", "Day", "Time shift", "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
+                    df_show = df_filter_week_2[[ "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
                                                  "Type of reparation", "Remarks"]].T
                     if len(df_filter_week_2)==0:
                         st.info('No appointments', icon="ℹ️")
@@ -205,7 +205,7 @@ if selected == "Agenda":
                     df_filter_week_2 = df_filter_week_2[df_filter_week_2["Time shift"]==option_time]
                                
                     columns = []
-                    df_show = df_filter_week_2[["Date", "Day", "Time shift", "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
+                    df_show = df_filter_week_2[["Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
                                                  "Type of reparation", "Remarks"]].T
                     if len(df_filter_week_2)==0:
                         st.info('No appointments', icon="ℹ️")
