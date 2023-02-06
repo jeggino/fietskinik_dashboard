@@ -55,7 +55,7 @@ if selected == "Agenda":
       st.info('No appointments', icon="ℹ️")
 
     else:
-        st.dataframe(df_filter_time[["Date", "Week", "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
+        st.dataframe(df_filter_data[["Date", "Week", "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
                                      "Type of reparation", "Remarks"]].T, use_container_width=True)
 #       col2, col3, col4 = st.columns([1, 1, 1])
 #       time_shift_empty = st.empty()
