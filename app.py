@@ -77,7 +77,7 @@ if selected == "Agenda":
             columns = []
             df_show = df_filter_week_1[["Date", "Week", "Time shift", "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
                                          "Type of reparation", "Remarks"]].T
-            if len(df_show)==0:
+            if len(df_filter_week_1)==0:
                 st.info('No appointments', icon="ℹ️")
             else:
                 for i in range(df_show.shape[1]):
@@ -107,7 +107,7 @@ if selected == "Agenda":
             columns = []
             df_show = df_filter_week_2[["Date", "Week", "Time shift", "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
                                          "Type of reparation", "Remarks"]].T
-            if len(df_show)==0:
+            if len(df_filter_week_2)==0:
                 st.info('No appointments', icon="ℹ️")
             else:
                 for i in range(df_show.shape[1]):
