@@ -53,6 +53,8 @@ if selected == "Agenda":
         'Select a week',
         ('This week', 'Next week'))
     
+    col2, col3, col4 = st.columns([1, 1, 1])
+    
     if option == 'This week':
         if len(df_filter_week_1)==0:
           st.info('No appointments', icon="ℹ️")
