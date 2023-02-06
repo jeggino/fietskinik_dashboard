@@ -59,7 +59,7 @@ if selected == "Agenda":
         df_show = df_filter_data[["Date", "Week", "Time shift", "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
                                      "Type of reparation", "Remarks"]].T
         for i in range(df_show.shape[1]):
-            columns.append(f"client {i + 1}")
+            columns.append(f"Client {i + 1}")
         df_show.columns = columns
         st.dataframe(df_show, use_container_width=True)
 #       col2, col3, col4 = st.columns([1, 1, 1])
