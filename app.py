@@ -54,7 +54,7 @@ if selected == "Agenda":
         ('This week', 'Next week'))
     
     left, right = st.columns([1, 1]) 
-    col2, col3, col4 = st.columns([1, 1, 1])
+    
     
     if option == 'This week':
         if len(df_filter_week_1)==0:
@@ -75,6 +75,7 @@ if selected == "Agenda":
             df_filter_week_1 = df_filter_week_1[df_filter_week_1["Day"]==option_day]
             
             if option_day == 'Tuesday':
+                col2, col3, col4 = st.columns([1, 1, 1])
             
                 n_1 = len(df_filter_week_1[df_filter_week_1["Time shift"] == "14-16"])
                 n_2 = len(df_filter_week_1[df_filter_week_1["Time shift"] == "16-18"])
@@ -102,6 +103,7 @@ if selected == "Agenda":
                     st.dataframe(df_show, use_container_width=True)
                     
             elif option_day == 'Thursday':
+                col2, col3, col4 = st.columns([1, 1, 1])
             
                 n_1 = len(df_filter_week_1[df_filter_week_1["Time shift"] == "14-16"])
                 n_2 = len(df_filter_week_1[df_filter_week_1["Time shift"] == "16-18"])
