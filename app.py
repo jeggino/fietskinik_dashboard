@@ -77,10 +77,13 @@ if selected == "Agenda":
             columns = []
             df_show = df_filter_week_1[["Date", "Week", "Time shift", "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
                                          "Type of reparation", "Remarks"]].T
-            for i in range(df_show.shape[1]):
-                columns.append(f"Client {i + 1}")
-            df_show.columns = columns
-            st.dataframe(df_show, use_container_width=True)
+            if len(df_show)==0:
+                st.info('No appointments', icon="ℹ️")
+            else:
+                for i in range(df_show.shape[1]):
+                    columns.append(f"Client {i + 1}")
+                df_show.columns = columns
+                st.dataframe(df_show, use_container_width=True)
             
     elif option == 'Next week':
         if len(df_filter_week_2)==0:
@@ -104,10 +107,13 @@ if selected == "Agenda":
             columns = []
             df_show = df_filter_week_2[["Date", "Week", "Time shift", "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
                                          "Type of reparation", "Remarks"]].T
-            for i in range(df_show.shape[1]):
-                columns.append(f"Client {i + 1}")
-            df_show.columns = columns
-            st.dataframe(df_show, use_container_width=True)
+            if len(df_show)==0:
+                st.info('No appointments', icon="ℹ️")
+            else:
+                for i in range(df_show.shape[1]):
+                    columns.append(f"Client {i + 1}")
+                df_show.columns = columns
+                st.dataframe(df_show, use_container_width=True)
             
 #     date =  str(st.date_input("Choose a date"))
 #     df_filter_data = df[df["Date"]==date]
