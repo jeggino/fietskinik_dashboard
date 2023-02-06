@@ -45,7 +45,7 @@ time_shift_choice = ["14-16", "16-18", "18-20"]
 if selected == "Agenda":
     
     week_1 = dt.today().isocalendar()[1]
-    week_2 = dt.today().isocalendar()[1] + 2
+    week_2 = dt.today().isocalendar()[1] + 1
     df_filter_week_1 = df[(df["Week"]==week_1)]
     df_filter_week_2 = df[(df["Week"]==week_2)]
     
