@@ -53,6 +53,7 @@ if selected == "Agenda":
         'Select a week',
         ('This week', 'Next week'))
     
+    left, right = st.columns([1, 1]) 
     col2, col3, col4 = st.columns([1, 1, 1])
     
     if option == 'This week':
@@ -60,6 +61,11 @@ if selected == "Agenda":
           st.info('No appointments', icon="ℹ️")
 
         else:
+            tuesday = len(df_filter_week_1[df_filter_week_1["Day"] == "Tuesday"])
+            thursday = len(df_filter_week_1[df_filter_week_1["Day"] == "Thursday"])
+            left.metric("Tuesday", f"{tuesday} clients")
+            right.metric("Thursday", f"{thursday} clients")
+            
             n_1 = len(df_filter_week_1[df_filter_week_1["Time shift"] == "14-16"])
             n_2 = len(df_filter_week_1[df_filter_week_1["Time shift"] == "16-18"])
             n_3 = len(df_filter_week_1[df_filter_week_1["Time shift"] == "18-20"])
@@ -90,6 +96,11 @@ if selected == "Agenda":
           st.info('No appointments', icon="ℹ️")
 
         else:
+            tuesday = len(df_filter_week_1[df_filter_week_1["Day"] == "Tuesday"])
+            thursday = len(df_filter_week_1[df_filter_week_1["Day"] == "Thursday"])
+            left.metric("Tuesday", f"{tuesday} clients")
+            right.metric("Thursday", f"{thursday} clients")
+            
             n_1 = len(df_filter_week_2[df_filter_week_2["Time shift"] == "14-16"])
             n_2 = len(df_filter_week_2[df_filter_week_2["Time shift"] == "16-18"])
             n_3 = len(df_filter_week_2[df_filter_week_2["Time shift"] == "18-20"])
