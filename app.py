@@ -4,6 +4,7 @@ from deta import Deta
 import pandas as pd
 import altair as alt
 import mapclassify
+from datetime import datetime as dt
 
 
 # ---INSET PASSWORD---
