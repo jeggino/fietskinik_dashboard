@@ -46,23 +46,55 @@ if selected == "Agenda":
     
     week_1 = dt.today().isocalendar()[1]
     week_2 = dt.today().isocalendar()[1] + 1
-    df_filter_data = df[(df["Week"]==week_1) | (df["Week"]==week_2)]
+    df_filter_week_1 = df[(df["Week"]==week_1)]
+    df_filter_week_2 = df[(df["Week"]==week_2)]
+    
+    option = st.selectbox(
+        'Select a week',
+        ('This week', 'Next week'))
+    
+    if option == 'This week':
+        if len(df_filter_week_1)==0:
+          st.info('No appointments', icon="ℹ️")
+
+        else:
+            columns = []
+            df_show = df_filter_week_1[["Date", "Week", "Time shift", "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
+                                         "Type of reparation", "Remarks"]].T
+            for i in range(df_show.shape[1]):
+                columns.append(f"Client {i + 1}")
+            df_show.columns = columns
+            st.dataframe(df_show, use_container_width=True)
+            
+    elif option == 'Next week':
+        if len(df_filter_week_2)==0:
+          st.info('No appointments', icon="ℹ️")
+
+        else:
+            columns = []
+            df_show = df_filter_week_2[["Date", "Week", "Time shift", "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
+                                         "Type of reparation", "Remarks"]].T
+            for i in range(df_show.shape[1]):
+                columns.append(f"Client {i + 1}")
+            df_show.columns = columns
+            st.dataframe(df_show, use_container_width=True)
+            
 #     date =  str(st.date_input("Choose a date"))
 #     df_filter_data = df[df["Date"]==date]
 
 #     # Using "with" notation
-    if len(df_filter_data)==0:
-      st.info('No appointments', icon="ℹ️")
+#     if len(df_filter_data)==0:
+#       st.info('No appointments', icon="ℹ️")
 
-    else:
-        columns = []
-        df_show = df_filter_data[["Date", "Week", "Time shift", "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
-                                     "Type of reparation", "Remarks"]].T
-        for i in range(df_show.shape[1]):
-            columns.append(f"Client {i + 1}")
-        df_show.columns = columns
-        st.dataframe(df_show, use_container_width=True)
-#       col2, col3, col4 = st.columns([1, 1, 1])
+#     else:
+#         columns = []
+#         df_show = df_filter_data[["Date", "Week", "Time shift", "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
+#                                      "Type of reparation", "Remarks"]].T
+#         for i in range(df_show.shape[1]):
+#             columns.append(f"Client {i + 1}")
+#         df_show.columns = columns
+#         st.dataframe(df_show, use_container_width=True)
+# #       col2, col3, col4 = st.columns([1, 1, 1])
 #       time_shift_empty = st.empty()
 #       time_shift = time_shift_empty.radio('Chose a time shift',time_shift_choice, horizontal=True)
 
