@@ -56,7 +56,7 @@ if selected == "Agenda":
 
     else:
         st.dataframe(df_filter_time[["Date", "Week", "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
-                                              "Type of reparation", "Remarks"]].T, use_container_width=True)
+                                     "Type of reparation", "Remarks"]].T, use_container_width=True)
 #       col2, col3, col4 = st.columns([1, 1, 1])
 #       time_shift_empty = st.empty()
 #       time_shift = time_shift_empty.radio('Chose a time shift',time_shift_choice, horizontal=True)
