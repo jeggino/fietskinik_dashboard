@@ -46,7 +46,7 @@ if selected == "Agenda":
     
     week_1 = dt.today().isocalendar()[1]
     week_2 = dt.today().isocalendar()[1] + 1
-    df_filter_data = df[(df["Week"]==week_1) or (df["Week"]==week_2)]
+    df_filter_data = df[(df["Week"]==week_1) | (df["Week"]==week_2)]
 #     date =  str(st.date_input("Choose a date"))
 #     df_filter_data = df[df["Date"]==date]
 
