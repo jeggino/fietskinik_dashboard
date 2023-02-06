@@ -61,14 +61,16 @@ if selected == "Agenda":
           st.info('No appointments', icon="ℹ️")
 
         else:
+            option_day = st.selectbox(
+                'Select a day',
+                ('select a day ','Tuesday', 'Thursday'))
+            
             tuesday = len(df_filter_week_1[df_filter_week_1["Day"] == "Tuesday"])
             thursday = len(df_filter_week_1[df_filter_week_1["Day"] == "Thursday"])
             left.metric("Tuesday", f"{tuesday} clients")
             right.metric("Thursday", f"{thursday} clients")
             
-            option_day = st.selectbox(
-                'Select a day',
-                ('select a day ','Tuesday', 'Thursday'))
+            
             
             df_filter_week_1 = df_filter_week_1[df_filter_week_1["Day"]==option_day]
             
