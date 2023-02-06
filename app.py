@@ -81,6 +81,14 @@ if selected == "Agenda":
           st.info('No appointments', icon="ℹ️")
 
         else:
+            n_1 = len(df_filter_week_2[df_filter_week_2["Time shift"] == "14-16"])
+            n_2 = len(df_filter_week_2[df_filter_week_2["Time shift"] == "16-18"])
+            n_3 = len(df_filter_week_2[df_filter_week_2["Time shift"] == "18-20"])
+
+            col2.metric("14-16", f"{n_1} clients")
+            col3.metric("16-18", f"{n_2} clients")
+            col4.metric("18-20", f"{n_3} clients")
+            
             columns = []
             df_show = df_filter_week_2[["Date", "Week", "Time shift", "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
                                          "Type of reparation", "Remarks"]].T
