@@ -124,7 +124,7 @@ if selected == "Agenda":
                         ("14-16",  "16-18", "18-20"))
 
                     df_filter_week_1 = df_filter_week_1[df_filter_week_1["Time shift"]==option_time]
-
+                               
                     columns = []
                     df_show = df_filter_week_1[["Date", "Day", "Time shift", "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
                                                  "Type of reparation", "Remarks"]].T
