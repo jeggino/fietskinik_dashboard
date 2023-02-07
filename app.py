@@ -218,5 +218,14 @@ if selected == "Agenda":
 if selected == "Dashboard":
 
     st.info("... let's do it later!", icon="🚲")
+    
+    source = df.groupby('Date',as_index=False).size()
+
+    alt.Chart(source
+             ).mark_line(
+    ).encode(
+        x='Date',
+        y='size'
+    )
        
         
