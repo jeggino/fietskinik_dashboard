@@ -221,11 +221,13 @@ if selected == "Dashboard":
     
     source = df.groupby('Date',as_index=False).size()
 
-    alt.Chart(source
+    time_series = alt.Chart(source
              ).mark_line(
     ).encode(
         x='Date',
         y='size'
     )
+    
+    st.altair_chart(time_series)
        
         
