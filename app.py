@@ -228,6 +228,18 @@ if selected == "Dashboard":
         y=alt.Y('size:Q', axis=None)
     )
     
-    st.altair_chart(time_series)
+    source_2 = df.groupby('Neighborhood',as_index=False).size()
+    base = alt.Chart(source_2).encode(
+    theta=alt.Theta("size:Q", stack=True),
+    radius=alt.Radius("size", scale=alt.Scale(type="sqrt", zero=True, rangeMin=20)),
+    color="size:N",
+    )
+
+    c1 = base.mark_arc(innerRadius=20, stroke="#fff")
+
+    c2 = base.mark_text(radiusOffset=10).encode(text="Neighborhood:N")
+
+    pie_chart = c1 + c2
+    st.altair_chart(pie_chart)
        
         
