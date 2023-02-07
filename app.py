@@ -231,7 +231,7 @@ if selected == "Dashboard":
     source_2 = df.groupby('Neighborhood',as_index=False).size()
     base = alt.Chart(source_2).encode(
     theta=alt.Theta("size:Q", stack=True),
-    radius=alt.Radius("size", scale=alt.Scale(type="sqrt", zero=True, rangeMin=20)),
+    radius=alt.Radius("size", scale=alt.Scale(type="sqrt", zero=True)),
     color="size:N",
     )
 
