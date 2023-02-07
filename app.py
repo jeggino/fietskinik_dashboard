@@ -41,7 +41,7 @@ selected = option_menu(
 
 # ---VARIABLES---
 time_shift_choice = ["14-16", "16-18", "18-20"]
-left, right = st.columns([1, 1]) 
+
 if selected == "Agenda":
     
     week_1 = dt.today().isocalendar()[1]
@@ -67,6 +67,7 @@ if selected == "Agenda":
             
             tuesday = len(df_filter_week_1[df_filter_week_1["Day"] == "Tuesday"])
             thursday = len(df_filter_week_1[df_filter_week_1["Day"] == "Thursday"])
+            left, right = st.columns([1, 1]) 
             left.metric("Tuesday", f"{tuesday} clients")
             right.metric("Thursday", f"{thursday} clients")
             
@@ -230,7 +231,7 @@ if selected == "Dashboard":
 
     st.altair_chart(time_series)
         
-        
+    left, right = st.columns([1, 1]) 
     with left:
         source_3 = df.groupby('Expertise',as_index=False).size()
         base = alt.Chart(source_3).encode(
