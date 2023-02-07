@@ -219,17 +219,33 @@ if selected == "Dashboard":
 
     st.info("... let's do it later!", icon="🚲")
     
-    with left:
-        source = df.groupby('Date',as_index=False).size()
+    source = df.groupby('Date',as_index=False).size()
 
-        time_series = alt.Chart(source
-                 ).mark_bar(
-        ).encode(
-            x=alt.X('Date:T', axis=alt.Axis(domain=False, format='%Y-%d-%b (%A)', tickSize=0)),
-            y=alt.Y('size:Q', axis=None)
+    time_series = alt.Chart(source
+             ).mark_bar(
+    ).encode(
+        x=alt.X('Date:T', axis=alt.Axis(domain=False, format='%Y-%d-%b (%A)', tickSize=0)),
+        y=alt.Y('size:Q', axis=None)
+    )
+
+    st.altair_chart(time_series)
+        
+        
+    with left:
+        source_3 = df.groupby('Expertise',as_index=False).size()
+        base = alt.Chart(source_3).encode(
+        theta=alt.Theta("size:Q", stack=True),
+        radius=alt.Radius("size", scale=alt.Scale(type="sqrt", zero=True)),
+        color="size:N",
         )
 
-        st.altair_chart(time_series)
+        c1 = base.mark_arc(innerRadius=20, stroke="#fff")
+
+        c2 = base.mark_text(radiusOffset=300).encode(text="Neighborhood:N")
+
+        pie_chart = c1 + c2
+        st.altair_chart(pie_chart)
+        
     
     with right:
         source_2 = df.groupby('Neighborhood',as_index=False).size()
@@ -241,7 +257,7 @@ if selected == "Dashboard":
 
         c1 = base.mark_arc(innerRadius=20, stroke="#fff")
 
-        c2 = base.mark_text(radiusOffset=20).encode(text="Neighborhood:N")
+        c2 = base.mark_text(radiusOffset=300).encode(text="Neighborhood:N")
 
         pie_chart = c1 + c2
         st.altair_chart(pie_chart)
