@@ -224,7 +224,7 @@ if selected == "Dashboard":
     time_series = alt.Chart(source
              ).mark_line(
     ).encode(
-        x=alt.X('yearmonth(Date):T', axis=alt.Axis(domain=False, format='%D', tickSize=0)),
+        x=alt.X('Date:T', axis=alt.Axis(domain=False, format='%D', tickSize=0)),
         y=alt.Y('size:Q', axis=None)
     )
     
