@@ -240,6 +240,6 @@ if selected == "Dashboard":
     c2 = base.mark_text(radiusOffset=10).encode(text="Neighborhood:N")
 
     pie_chart = c1 + c2
-    st.altair_chart(pie_chart)
+    st.altair_chart(c1)
        
         
