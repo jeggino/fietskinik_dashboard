@@ -41,7 +41,7 @@ selected = option_menu(
 
 # ---VARIABLES---
 time_shift_choice = ["14-16", "16-18", "18-20"]
-
+left, right = st.columns([1, 1]) 
 if selected == "Agenda":
     
     week_1 = dt.today().isocalendar()[1]
@@ -53,7 +53,7 @@ if selected == "Agenda":
         'Select a week',
         ('This week', 'Next week'))
     
-    left, right = st.columns([1, 1]) 
+    
     
     
     if option == 'This week':
