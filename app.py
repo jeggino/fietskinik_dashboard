@@ -222,7 +222,7 @@ if selected == "Dashboard":
     source = df.groupby('Date',as_index=False).size()
 
     time_series = alt.Chart(source
-             ).mark_line(
+             ).mark_bar(
     ).encode(
         x=alt.X('Date:T', axis=alt.Axis(domain=False, format='%A', tickSize=0)),
         y=alt.Y('size:Q', axis=None)
