@@ -59,7 +59,8 @@ if selected == len_this_week:
     tuesday = len(df_filter_this_week[df_filter_this_week["Day"] == "Tuesday"])
     thursday = len(df_filter_this_week[df_filter_this_week["Day"] == "Thursday"])
         
-    if left.button(f'Tuesday - {tuesday} clients'):
+    tuesday = left.button(f'Tuesday - {tuesday} clients'
+    if tuesday:
         if len(tuesday)==0:
             st.info('No appointments', icon="ℹ️")
         else:
