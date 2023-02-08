@@ -53,9 +53,6 @@ if selected == "Agenda":
 #         'Select a week',
 #         ('This week', 'Next week'))
     
-    if st.button('Say hello'):
-        st.write('Why hello there')
-    else:
     
     
     
