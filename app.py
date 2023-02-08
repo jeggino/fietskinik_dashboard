@@ -92,7 +92,7 @@ if selected == len_this_week:
             df_show.columns = columns
             st.dataframe(df_show, use_container_width=True)
                       
-if selected == len_week_2:
+elif selected == len_week_2:
     left, right = st.columns([1, 1])
             
     tuesday = len(df_filter_next_week[df_filter_next_week["Day"] == "Tuesday"])
@@ -113,8 +113,10 @@ if selected == len_week_2:
                 columns.append(f"Client {i + 1}")
             df_show.columns = columns
             st.dataframe(df_show, use_container_width=True)
+            
     
     thursday_botton = righ.button(f'Thursday - {thursday} clients')
+    
     if thursday_botton:
         if thursday==0:
             st.info('No appointments', icon="ℹ️")
