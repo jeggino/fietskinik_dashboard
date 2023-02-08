@@ -69,15 +69,16 @@ if selected == "Agenda":
             
             tuesday = len(df_filter_week_1[df_filter_week_1["Day"] == "Tuesday"])
             thursday = len(df_filter_week_1[df_filter_week_1["Day"] == "Thursday"])
-            left, right = st.columns([1, 1]) 
-            left.metric("Tuesday", f"{tuesday} clients")
-            right.metric("Thursday", f"{thursday} clients")
+#             left, right = st.columns([1, 1]) 
+#             left.metric("Tuesday", f"{tuesday} clients")
+#             right.metric("Thursday", f"{thursday} clients")
             
             
             
             df_filter_week_1 = df_filter_week_1[df_filter_week_1["Day"]==option_day]
             
-            if option_day == 'Tuesday':
+            if button(f'Tuesday - {tuesday} clients'):
+#             if option_day == 'Tuesday':
                 if len(df_filter_week_1)==0:
                     st.info('No appointments', icon="ℹ️")
                 else:
