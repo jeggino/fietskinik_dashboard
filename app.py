@@ -55,10 +55,10 @@ if selected == "Agenda":
     
     
     
-    
+    left_1, right_1 = st.columns([1, 1])
     
 #     if option == 'This week':
-    if st.button('This week'):
+    if left_1.button('This week'):
         if len(df_filter_week_1)==0:
           st.info('No appointments', icon="ℹ️")
 
@@ -140,7 +140,7 @@ if selected == "Agenda":
                         st.dataframe(df_show, use_container_width=True)
             
 #     elif option == 'Next week':
-    elif st.button('Next week'):
+    elif right_1.button('Next week'):
         if len(df_filter_week_2)==0:
           st.info('No appointments', icon="ℹ️")
 
