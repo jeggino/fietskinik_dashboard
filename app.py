@@ -49,14 +49,19 @@ if selected == "Agenda":
     df_filter_week_1 = df[(df["Week"]==week_1)]
     df_filter_week_2 = df[(df["Week"]==week_2)]
     
-    option = st.selectbox(
-        'Select a week',
-        ('This week', 'Next week'))
+#     option = st.selectbox(
+#         'Select a week',
+#         ('This week', 'Next week'))
+    
+    if st.button('Say hello'):
+        st.write('Why hello there')
+    else:
     
     
     
     
-    if option == 'This week':
+#     if option == 'This week':
+    if st.button('This week'):
         if len(df_filter_week_1)==0:
           st.info('No appointments', icon="ℹ️")
 
@@ -137,7 +142,8 @@ if selected == "Agenda":
                         df_show.columns = columns
                         st.dataframe(df_show, use_container_width=True)
             
-    elif option == 'Next week':
+#     elif option == 'Next week':
+    elif st.button('Next week'):
         if len(df_filter_week_2)==0:
           st.info('No appointments', icon="ℹ️")
 
