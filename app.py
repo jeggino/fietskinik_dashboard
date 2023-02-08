@@ -89,7 +89,6 @@ if selected == len_this_week:
                 columns.append(f"Client {i + 1}")
             df_show.columns = columns
             st.dataframe(df_show, use_container_width=True)
-            st.stop()
                       
 elif selected == len_next_week:
     left, right = st.columns([1, 1])
@@ -111,7 +110,6 @@ elif selected == len_next_week:
                 columns.append(f"Client {i + 1}")
             df_show.columns = columns
             st.dataframe(df_show, use_container_width=True)
-            st.stop()
             
         
     if right.button(f'Thursday - {thursday} clients'):
@@ -129,6 +127,5 @@ elif selected == len_next_week:
                 columns.append(f"Client {i + 1}")
             df_show.columns = columns
             st.dataframe(df_show, use_container_width=True)
-            st.stop()
        
         
