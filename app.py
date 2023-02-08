@@ -50,9 +50,6 @@ selected = option_menu(
 
 
 
-# ---VARIABLES---
-time_shift_choice = ["14-16", "16-18", "18-20"]
-
 if selected == len_this_week:
     left, right = st.columns([1, 1])
             
