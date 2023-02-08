@@ -44,7 +44,7 @@ st.title("Agenda 📖", anchor=None)
 selected = option_menu(
     menu_title=None,
     options=[len_this_week, len_next_week],
-    icons=["bi-journal-check", "bi bi-bar-chart-line-fill"],  # https://icons.getbootstrap.com/
+#     icons=["bi-journal-check", "bi bi-bar-chart-line-fill"],  # https://icons.getbootstrap.com/
     orientation="horizontal",
 )
 
@@ -91,7 +91,7 @@ if selected == len_this_week:
             st.dataframe(df_show, use_container_width=True)
             st.stop()
                       
-elif selected == len_week_2:
+elif selected == len_next_week:
     left, right = st.columns([1, 1])
             
     tuesday = len(df_filter_next_week[df_filter_next_week["Day"] == "Tuesday"])
