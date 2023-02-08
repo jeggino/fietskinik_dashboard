@@ -61,7 +61,7 @@ if selected == len_this_week:
         
     tuesday = left.button(f'Tuesday - {tuesday} clients')
     if tuesday:
-        if len(tuesday)==0:
+        if tuesday==0:
             st.info('No appointments', icon="ℹ️")
         else:
             df_filter_this_week_tuesday = df_filter_this_week[df_filter_this_week["Day"] == "Tuesday"]
@@ -76,7 +76,7 @@ if selected == len_this_week:
             st.dataframe(df_show, use_container_width=True)
 
     elif righ.button(f'Thursday - {thursday} clients'):
-        if len(thursday)==0:
+        if thursday==0:
             st.info('No appointments', icon="ℹ️")
         else:
             df_filter_this_week_thursday = df_filter_this_week[df_filter_this_week["Day"] == "Thursday"]
@@ -97,7 +97,7 @@ if selected == len_week_2:
     thursday = len(df_filter_next_week[df_filter_next_week["Day"] == "Thursday"])
         
     if left.button(f'Tuesday - {tuesday} clients'):
-        if len(tuesday)==0:
+        if tuesday==0:
             st.info('No appointments', icon="ℹ️")
         else:
             df_filter_next_week_tuesday = df_filter_next_week[df_filter_next_week["Day"] == "Tuesday"]
@@ -112,7 +112,7 @@ if selected == len_week_2:
             st.dataframe(df_show, use_container_width=True)
 
     elif righ.button(f'Thursday - {thursday} clients'):
-        if len(thursday)==0:
+        if thursday==0:
             st.info('No appointments', icon="ℹ️")
         else:
             df_filter_this_next_thursday = df_filter_next_week[df_filter_next_week["Day"] == "Thursday"]
