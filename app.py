@@ -59,37 +59,37 @@ if selected == len_this_week:
     tuesday = len(df_filter_this_week[df_filter_this_week["Day"] == "Tuesday"])
     thursday = len(df_filter_this_week[df_filter_this_week["Day"] == "Thursday"])
         
-    if left.button(f'Tuesday - {tuesday} clients'):
-        if tuesday==0:
-            st.info('No appointments', icon="ℹ️")
-        else:
-            df_filter_this_week_tuesday = df_filter_this_week[df_filter_this_week["Day"] == "Tuesday"]
-
-            
-            df_show = df_filter_this_week_tuesday[["Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
-                                                   "Type of reparation", "Remarks"]].T
-            columns = []
-            for i in range(df_show.shape[1]):
-                columns.append(f"Client {i + 1}")
-            df_show.columns = columns
-            st.dataframe(df_show, use_container_width=True)
-    
-#     if righ.button(f'Thursday - {thursday} clients'):
-#         if thursday==0:
+#     if left.button(f'Tuesday - {tuesday} clients'):
+#         if tuesday==0:
 #             st.info('No appointments', icon="ℹ️")
 #         else:
-#             df_filter_this_week_thursday = df_filter_this_week[df_filter_this_week["Day"] == "Thursday"]
+#             df_filter_this_week_tuesday = df_filter_this_week[df_filter_this_week["Day"] == "Tuesday"]
 
             
-#             df_show = df_filter_this_week_thursday[["Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
+#             df_show = df_filter_this_week_tuesday[["Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
 #                                                    "Type of reparation", "Remarks"]].T
-            
 #             columns = []
 #             for i in range(df_show.shape[1]):
 #                 columns.append(f"Client {i + 1}")
 #             df_show.columns = columns
 #             st.dataframe(df_show, use_container_width=True)
-#             st.stop()
+    
+    if righ.button(f'Thursday - {thursday} clients'):
+        if thursday==0:
+            st.info('No appointments', icon="ℹ️")
+        else:
+            df_filter_this_week_thursday = df_filter_this_week[df_filter_this_week["Day"] == "Thursday"]
+
+            
+            df_show = df_filter_this_week_thursday[["Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
+                                                   "Type of reparation", "Remarks"]].T
+            
+            columns = []
+            for i in range(df_show.shape[1]):
+                columns.append(f"Client {i + 1}")
+            df_show.columns = columns
+            st.dataframe(df_show, use_container_width=True)
+            st.stop()
                       
 elif selected == len_week_2:
     left, right = st.columns([1, 1])
