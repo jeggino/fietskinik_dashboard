@@ -31,10 +31,12 @@ df = pd.DataFrame(db_content)
 # ---trial---
 
 
+var = 34
+
 # --- NAVIGATION MENU ---
 selected = option_menu(
     menu_title=None,
-    options=["Agenda", "Dashboard"],
+    options=[f"Agenda - {var}", "Dashboard"],
     icons=["bi-journal-check", "bi bi-bar-chart-line-fill"],  # https://icons.getbootstrap.com/
     orientation="horizontal",
 )
