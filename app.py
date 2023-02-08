@@ -109,7 +109,8 @@ if selected == "Agenda":
                         df_show.columns = columns
                         st.dataframe(df_show, use_container_width=True)
                     
-            elif option_day == 'Thursday':
+#             elif option_day == 'Thursday':
+            elif st.button(f'Thursday - {thursday} clients'):
                 if len(df_filter_week_1)==0:
                     st.info('No appointments', icon="ℹ️")
                 else:
