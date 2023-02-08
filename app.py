@@ -69,9 +69,9 @@ if selected == "Agenda":
             
             tuesday = len(df_filter_week_1[df_filter_week_1["Day"] == "Tuesday"])
             thursday = len(df_filter_week_1[df_filter_week_1["Day"] == "Thursday"])
-#             left, right = st.columns([1, 1]) 
-#             left.metric("Tuesday", f"{tuesday} clients")
-#             right.metric("Thursday", f"{thursday} clients")
+            left, right = st.columns([1, 1]) 
+            left.metric("Tuesday", f"{tuesday} clients")
+            right.metric("Thursday", f"{thursday} clients")
             
             
             
