@@ -76,7 +76,7 @@ if selected == len_this_week:
             st.dataframe(df_show, use_container_width=True)
     
     thursday_botton = righ.button(f'Thursday - {thursday} clients')
-    elif thursday_botton:
+    if thursday_botton:
         if thursday==0:
             st.info('No appointments', icon="ℹ️")
         else:
