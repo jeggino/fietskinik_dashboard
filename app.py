@@ -77,7 +77,7 @@ if selected == "Agenda":
             
 #             df_filter_week_1 = df_filter_week_1[df_filter_week_1["Day"]==option_day]
             
-            if button(f'Tuesday -  clients'):
+            if st.button(f'Tuesday - {tuesday} clients'):
 #             if option_day == 'Tuesday':
                 if len(df_filter_week_1)==0:
                     st.info('No appointments', icon="ℹ️")
