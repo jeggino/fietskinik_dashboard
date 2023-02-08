@@ -66,7 +66,7 @@ if selected == len_this_week:
             df_filter_this_week_tuesday = df_filter_this_week[df_filter_this_week["Day"] == "Tuesday"]
 
             
-            df_show = df_filter_this_week_tuesday[["Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
+            df_show = df_filter_this_week_tuesday[["Time shift", "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
                                                    "Type of reparation", "Remarks"]].T
             columns = []
             for i in range(df_show.shape[1]):
@@ -81,7 +81,7 @@ if selected == len_this_week:
             df_filter_this_week_thursday = df_filter_this_week[df_filter_this_week["Day"] == "Thursday"]
 
             
-            df_show = df_filter_this_week_thursday[["Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
+            df_show = df_filter_this_week_thursday[["Time shift", "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
                                                    "Type of reparation", "Remarks"]].T
             
             columns = []
@@ -103,7 +103,7 @@ elif selected == len_next_week:
             df_filter_next_week_tuesday = df_filter_next_week[df_filter_next_week["Day"] == "Tuesday"]
 
             
-            df_show = df_filter_next_week_tuesday[["Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
+            df_show = df_filter_next_week_tuesday[["Time shift", "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
                                                    "Type of reparation", "Remarks"]].T
             columns = []
             for i in range(df_show.shape[1]):
@@ -119,7 +119,7 @@ elif selected == len_next_week:
             df_filter_next_week_thursday = df_filter_next_week[df_filter_next_week["Day"] == "Thursday"]
 
             
-            df_show = df_filter_next_week_thursday[["Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
+            df_show = df_filter_next_week_thursday[["Time shift", "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
                                                    "Type of reparation", "Remarks"]].T
             
             columns = []
