@@ -59,22 +59,22 @@ if selected == len_this_week:
     tuesday = len(df_filter_this_week[df_filter_this_week["Day"] == "Tuesday"])
     thursday = len(df_filter_this_week[df_filter_this_week["Day"] == "Thursday"])
         
-#     if left.button(f'Tuesday - {tuesday} clients'):
-#         if tuesday==0:
-#             st.info('No appointments', icon="ℹ️")
-#         else:
-#             df_filter_this_week_tuesday = df_filter_this_week[df_filter_this_week["Day"] == "Tuesday"]
+    if left.button(f'Tuesday - {tuesday} clients'):
+        if tuesday==0:
+            st.info('No appointments', icon="ℹ️")
+        else:
+            df_filter_this_week_tuesday = df_filter_this_week[df_filter_this_week["Day"] == "Tuesday"]
 
             
-#             df_show = df_filter_this_week_tuesday[["Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
-#                                                    "Type of reparation", "Remarks"]].T
-#             columns = []
-#             for i in range(df_show.shape[1]):
-#                 columns.append(f"Client {i + 1}")
-#             df_show.columns = columns
-#             st.dataframe(df_show, use_container_width=True)
+            df_show = df_filter_this_week_tuesday[["Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
+                                                   "Type of reparation", "Remarks"]].T
+            columns = []
+            for i in range(df_show.shape[1]):
+                columns.append(f"Client {i + 1}")
+            df_show.columns = columns
+            st.dataframe(df_show, use_container_width=True)
     
-    if righ.button(f'Thursday - {thursday} clients'):
+    if right.button(f'Thursday - {thursday} clients'):
         if thursday==0:
             st.info('No appointments', icon="ℹ️")
         else:
@@ -114,7 +114,7 @@ elif selected == len_week_2:
             st.stop()
             
         
-    if righ.button(f'Thursday - {thursday} clients'):
+    if right.button(f'Thursday - {thursday} clients'):
         if thursday==0:
             st.info('No appointments', icon="ℹ️")
         else:
