@@ -31,12 +31,18 @@ df = pd.DataFrame(db_content)
 # ---trial---
 
 
-var = 34
+week_1 = dt.today().isocalendar()[1]
+week_2 = dt.today().isocalendar()[1] + 1
+df_filter_week_1 = df[(df["Week"]==week_1)]
+df_filter_week_2 = df[(df["Week"]==week_2)]
+
+len_week_1 = f"This week - {len(df_filter_week_1)} clients"
+len_week_2 = f"Next week - {len(df_filter_week_2)} clients"
 
 # --- NAVIGATION MENU ---
 selected = option_menu(
     menu_title=None,
-    options=[f"Agenda - {var}", "Dashboard"],
+    options=[len_week_1, len_week_2],
     icons=["bi-journal-check", "bi bi-bar-chart-line-fill"],  # https://icons.getbootstrap.com/
     orientation="horizontal",
 )
@@ -44,12 +50,12 @@ selected = option_menu(
 # ---VARIABLES---
 time_shift_choice = ["14-16", "16-18", "18-20"]
 
-if selected == f"Agenda - {var}":
+if selected == len_week_1:
     
-    week_1 = dt.today().isocalendar()[1]
-    week_2 = dt.today().isocalendar()[1] + 1
-    df_filter_week_1 = df[(df["Week"]==week_1)]
-    df_filter_week_2 = df[(df["Week"]==week_2)]
+#     week_1 = dt.today().isocalendar()[1]
+#     week_2 = dt.today().isocalendar()[1] + 1
+#     df_filter_week_1 = df[(df["Week"]==week_1)]
+#     df_filter_week_2 = df[(df["Week"]==week_2)]
     
 #     option = st.selectbox(
 #         'Select a week',
@@ -224,7 +230,7 @@ if selected == f"Agenda - {var}":
                         df_show.columns = columns
                         st.dataframe(df_show, use_container_width=True)
         
-if selected == "Dashboard":
+if selected == len_week_2:
 
     st.info("... let's do it later!", icon="🚲")
     
