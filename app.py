@@ -39,6 +39,7 @@ df_filter_week_2 = df[(df["Week"]==week_2)]
 len_week_1 = f"This week - {len(df_filter_week_1)} clients"
 len_week_2 = f"Next week - {len(df_filter_week_2)} clients"
 
+st.title("Agenda 📖", anchor=None)
 # --- NAVIGATION MENU ---
 selected = option_menu(
     menu_title=None,
