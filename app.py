@@ -48,12 +48,13 @@ selected = option_menu(
     orientation="horizontal",
 )
 
-left, right = st.columns([1, 1])
+
 
 # ---VARIABLES---
 time_shift_choice = ["14-16", "16-18", "18-20"]
 
 if selected == len_this_week:
+    left, right = st.columns([1, 1])
             
     tuesday = len(df_filter_this_week[df_filter_this_week["Day"] == "Tuesday"])
     thursday = len(df_filter_this_week[df_filter_this_week["Day"] == "Thursday"])
@@ -89,6 +90,7 @@ if selected == len_this_week:
             st.dataframe(df_show, use_container_width=True)
                       
 if selected == len_week_2:
+    left, right = st.columns([1, 1])
 
     tuesday = len(df_filter_next_week[df_filter_next_week["Day"] == "Tuesday"])
     thursday = len(df_filter_next_week[df_filter_next_week["Day"] == "Thursday"])
