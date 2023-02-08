@@ -63,9 +63,9 @@ if selected == "Agenda":
           st.info('No appointments', icon="ℹ️")
 
         else:
-            option_day = st.selectbox(
-                'Select a day',
-                ('select a day ','Tuesday', 'Thursday'))
+#             option_day = st.selectbox(
+#                 'Select a day',
+#                 ('select a day ','Tuesday', 'Thursday'))
             
             tuesday = len(df_filter_week_1[df_filter_week_1["Day"] == "Tuesday"])
             thursday = len(df_filter_week_1[df_filter_week_1["Day"] == "Thursday"])
@@ -75,7 +75,7 @@ if selected == "Agenda":
             
             
             
-            df_filter_week_1 = df_filter_week_1[df_filter_week_1["Day"]==option_day]
+#             df_filter_week_1 = df_filter_week_1[df_filter_week_1["Day"]==option_day]
             
             if button(f'Tuesday - {tuesday} clients'):
 #             if option_day == 'Tuesday':
