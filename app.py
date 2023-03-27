@@ -31,6 +31,7 @@ df = pd.DataFrame(db_content)
 # ---trial---
 
 
+
 this_week = dt.today().isocalendar()[1]
 next_week = dt.today().isocalendar()[1] + 1
 df_filter_this_week = df[(df["Week"]==this_week)]
@@ -46,6 +47,20 @@ selected = option_menu(
     options=[len_this_week, len_next_week],
 #     icons=["bi-journal-check", "bi bi-bar-chart-line-fill"],  # https://icons.getbootstrap.com/
     orientation="horizontal",
+)
+
+@st.cache
+def convert_df(df):
+    # IMPORTANT: Cache the conversion to prevent computation on every rerun
+    return df.to_csv().encode('utf-8')
+
+csv = convert_df(db_content)
+
+st.download_button(
+    label="Download data as CSV",
+    data=csv,
+    file_name='fietskliniek_df.csv',
+    mime='text/csv',
 )
 
 
