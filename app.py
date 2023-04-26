@@ -6,9 +6,9 @@ import altair as alt
 import mapclassify
 from datetime import datetime as dt
 
-
+Error000
 # ---INSET PASSWORD---
-passwords = ["fietskliniek_2"]
+passwords = ["fietskliniek"]
 password_empty = st.empty()
 password = password_empty.text_input('password', placeholder='insert password ...',type="password", label_visibility="collapsed")
 
