@@ -8,7 +8,7 @@ from datetime import datetime as dt
 
 
 # ---INSET PASSWORD---
-passwords = ["fietskliniek"]
+passwords = ["fietskliniek_2"]
 password_empty = st.empty()
 password = password_empty.text_input('password', placeholder='insert password ...',type="password", label_visibility="collapsed")
 
