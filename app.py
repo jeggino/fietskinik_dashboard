@@ -6,7 +6,7 @@ import altair as alt
 import mapclassify
 from datetime import datetime as dt
 
-Error000
+
 # ---INSET PASSWORD---
 passwords = ["fietskliniek"]
 password_empty = st.empty()
