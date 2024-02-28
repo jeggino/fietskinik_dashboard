@@ -6,9 +6,9 @@ import altair as alt
 import mapclassify
 from datetime import datetime as dt
 
-# ###
-# st.stop()
-# ###
+###
+st.stop()
+###
 
 # ---INSET PASSWORD---
 passwords = ["fietskliniek"]
