@@ -10,16 +10,7 @@ from datetime import datetime as dt
 # st.stop()
 # ###
 
-# --- HIDE STREAMLIT STYLE ---
-hide_st_style = """
-            <style>
-            #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
-            header {visibility: hidden;}
-            </style>
-            """
 
-st.markdown(hide_st_style, unsafe_allow_html=True)
 
 # ---INSET PASSWORD---
 passwords = ["fietskliniek"]
@@ -34,6 +25,17 @@ elif password not in passwords:
     st.stop()
     
 password_empty.empty()
+
+# --- HIDE STREAMLIT STYLE ---
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+
+st.markdown(hide_st_style, unsafe_allow_html=True)
 
 
 # ---Connect to Deta Base with your Project Key---
