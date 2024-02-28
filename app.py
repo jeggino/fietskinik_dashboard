@@ -10,16 +10,6 @@ from datetime import datetime as dt
 # st.stop()
 # ###
 
-st.markdown(
-    r"""
-    <style>
-    .stDeployButton {
-            visibility: hidden;
-        }
-    </style>
-    """, unsafe_allow_html=True
-)
-
 # ---INSET PASSWORD---
 passwords = ["fietskliniek"]
 password_empty = st.empty()
