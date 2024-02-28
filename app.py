@@ -6,9 +6,9 @@ import altair as alt
 import mapclassify
 from datetime import datetime as dt
 
-###
-st.stop()
-###
+# ###
+# st.stop()
+# ###
 
 # ---INSET PASSWORD---
 passwords = ["fietskliniek"]
@@ -31,14 +31,18 @@ db = deta.Base("project_fietskliniek")
 db_content = db.fetch().items
 df = pd.DataFrame(db_content)
 
+df['Date'] =  pd.to_datetime(df['Date'], format='%Y-%m-%d')
+df['year'] = df['Date'].dt.year
+
 # ---trial---
 
 
 
 this_week = dt.today().isocalendar()[1]
 next_week = dt.today().isocalendar()[1] + 1
-df_filter_this_week = df[(df["Week"]==this_week)]
-df_filter_next_week = df[(df["Week"]==next_week)]
+year = dt.today().isocalendar()[0]
+df_filter_this_week = df[(df["Week"]==this_week)&(df["year"]==year)]
+df_filter_next_week = df[(df["Week"]==next_week)&(df["year"]==year)]
 
 len_this_week = f"This week - {len(df_filter_this_week)} clients"
 len_next_week = f"Next week - {len(df_filter_next_week)} clients"
