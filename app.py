@@ -10,6 +10,17 @@ from datetime import datetime as dt
 # st.stop()
 # ###
 
+# --- HIDE STREAMLIT STYLE ---
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+
+st.markdown(hide_st_style, unsafe_allow_html=True)
+
 # ---INSET PASSWORD---
 passwords = ["fietskliniek"]
 password_empty = st.empty()
