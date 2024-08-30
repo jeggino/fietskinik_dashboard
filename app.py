@@ -201,6 +201,6 @@ elif selected == len_next_week:
             df_pictures_2.index = columns
             
             df_pictures_2
-            for client, pics in zip(columns, df_filter_next_week_friday["Name_picture"])
+            for client, pics in zip(columns, df_filter_next_week_friday["Name_picture"]):
                 res = drive.get(pics).read()
                 st.image(res,caption=client)
