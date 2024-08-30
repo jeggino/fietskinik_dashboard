@@ -183,9 +183,8 @@ elif selected == len_next_week:
             df_filter_next_week_friday = df_filter_next_week[df_filter_next_week["Day"] == "Friday"]
             st.dataframe(df_filter_next_week_friday)
 
-            for names in df_filter_this_week_friday["Name_picture"].to_list():
+            df_filter_this_week_friday["Name_picture"].to_list()
                 
-                st.write(names)
             df_show = df_filter_next_week_friday[["Membership","Membership_number","Time shift", "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
                                                    "Type of reparation", "Remarks"]].T
             
