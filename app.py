@@ -181,6 +181,7 @@ elif selected == len_next_week:
             st.info('No appointments', icon="ℹ️")
         else:
             df_filter_next_week_friday = df_filter_next_week[df_filter_next_week["Day"] == "Friday"]
+            st.dataframe(df_filter_next_week_friday)
 
             for names in df_filter_this_week_friday["Name_picture"].to_list():
                 
