@@ -114,7 +114,7 @@ if selected == len_this_week:
                 except:
                     continue
     
-    elif middle.button(f'Thursday - {thursday} clients'):
+    if middle.button(f'Thursday - {thursday} clients'):
         if thursday==0:
             st.info('No appointments', icon="ℹ️")
         else:
@@ -137,7 +137,7 @@ if selected == len_this_week:
                 except:
                     continue
 
-    elif right.button(f'Friday - {friday} clients'):
+    if right.button(f'Friday - {friday} clients'):
         if friday==0:
             st.info('No appointments', icon="ℹ️")
         else:
@@ -188,7 +188,7 @@ elif selected == len_next_week:
                     st.image(res,caption=client)
                 except:
                     continue
-    elif middle.button(f'Thursday - {thursday} clients'):
+    if middle.button(f'Thursday - {thursday} clients'):
         if thursday==0:
             st.info('No appointments', icon="ℹ️")
         else:
@@ -212,7 +212,7 @@ elif selected == len_next_week:
                 except:
                     continue
 
-    elif right.button(f'Friday - {friday} clients'):
+    if right.button(f'Friday - {friday} clients'):
         if friday==0:
             st.info('No appointments', icon="ℹ️")
         else:
