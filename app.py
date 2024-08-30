@@ -233,9 +233,9 @@ elif selected == len_next_week:
 
             df_pictures_2 = df_filter_next_week_friday["Name_picture"]
             df_pictures_2.index = columns
-            for client, pics in zip(columns, df_filter_next_week_friday["Name_picture"]):
+            for client, pics comments in zip(columns, df_filter_next_week_friday["Name_picture"], df_filter_next_week_friday["Remarks"]):
                 try:
                     res = drive.get(pics).read()
-                    st.image(res,caption=client)
+                    st.image(res,caption=f"{client} - {comments}")
                 except:
                     continue
