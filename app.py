@@ -106,6 +106,13 @@ if selected == len_this_week:
                 columns.append(f"Client {i + 1}")
             df_show.columns = columns
             st.dataframe(df_show, use_container_width=True)
+
+            for client, pics in zip(columns, df_filter_this_week_tuesday["Name_picture"]):
+                try:
+                    res = drive.get(pics).read()
+                    st.image(res,caption=client)
+                except:
+                    continue
     
     elif middle.button(f'Thursday - {thursday} clients'):
         if thursday==0:
@@ -114,7 +121,7 @@ if selected == len_this_week:
             df_filter_this_week_thursday = df_filter_this_week[df_filter_this_week["Day"] == "Thursday"]
 
             
-            df_show = df_filter_this_week_friday[["Membership","Membership_number","Time shift", "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
+            df_show = df_filter_this_week_thursday[["Membership","Membership_number","Time shift", "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
                                                    "Type of reparation", "Remarks"]].T
             
             columns = []
@@ -122,6 +129,13 @@ if selected == len_this_week:
                 columns.append(f"Client {i + 1}")
             df_show.columns = columns
             st.dataframe(df_show, use_container_width=True)
+
+            for client, pics in zip(columns, df_filter_this_week_thursday["Name_picture"]):
+                try:
+                    res = drive.get(pics).read()
+                    st.image(res,caption=client)
+                except:
+                    continue
 
     elif right.button(f'Friday - {friday} clients'):
         if friday==0:
@@ -138,6 +152,13 @@ if selected == len_this_week:
                 columns.append(f"Client {i + 1}")
             df_show.columns = columns
             st.dataframe(df_show, use_container_width=True)
+
+            for client, pics in zip(columns, df_filter_this_week_friday["Name_picture"]):
+                try:
+                    res = drive.get(pics).read()
+                    st.image(res,caption=client)
+                except:
+                    continue
                       
 elif selected == len_next_week:
     left, middle, right = st.columns([1, 1, 1])
@@ -160,7 +181,13 @@ elif selected == len_next_week:
                 columns.append(f"Client {i + 1}")
             df_show.columns = columns
             st.dataframe(df_show, use_container_width=True)
-    
+
+            for client, pics in zip(columns, df_filter_next_week_tuesday["Name_picture"]):
+                try:
+                    res = drive.get(pics).read()
+                    st.image(res,caption=client)
+                except:
+                    continue
     elif middle.button(f'Thursday - {thursday} clients'):
         if thursday==0:
             st.info('No appointments', icon="ℹ️")
@@ -177,6 +204,13 @@ elif selected == len_next_week:
                 columns.append(f"Client {i + 1}")
             df_show.columns = columns
             st.dataframe(df_show, use_container_width=True)
+
+            for client, pics in zip(columns, df_filter_next_week_thursday["Name_picture"]):
+                try:
+                    res = drive.get(pics).read()
+                    st.image(res,caption=client)
+                except:
+                    continue
 
     elif right.button(f'Friday - {friday} clients'):
         if friday==0:
@@ -199,8 +233,6 @@ elif selected == len_next_week:
 
             df_pictures_2 = df_filter_next_week_friday["Name_picture"]
             df_pictures_2.index = columns
-            
-            df_pictures_2
             for client, pics in zip(columns, df_filter_next_week_friday["Name_picture"]):
                 try:
                     res = drive.get(pics).read()
