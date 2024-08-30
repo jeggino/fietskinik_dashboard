@@ -206,4 +206,4 @@ elif selected == len_next_week:
                     res = drive.get(pics).read()
                     st.image(res,caption=client)
                 except:
-                    repeat
+                    continue
