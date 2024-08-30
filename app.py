@@ -43,7 +43,6 @@ def Agenda():
     len_this_week = f"This week - {len(df_filter_this_week)} clients"
     len_next_week = f"Next week - {len(df_filter_next_week)} clients"
     
-    st.title("Agenda 📖", anchor=None)
     # --- NAVIGATION MENU ---
     selected = option_menu(
         menu_title=None,
@@ -229,6 +228,6 @@ def Statistik():
     
 
 
-pg = st.navigation([st.Page(Agenda), st.Page(Statistik)])
+pg = st.navigation([st.Page(Agenda,icon="📓"), st.Page(Statistik,icon="📊")])
 pg.run()
 
