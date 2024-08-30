@@ -106,7 +106,7 @@ if selected == len_this_week:
             df_show.columns = columns
             st.dataframe(df_show, use_container_width=True)
     
-    elif middle.button(f'Thursday - {thursday} clients'):
+    if middle.button(f'Thursday - {thursday} clients'):
         if thursday==0:
             st.info('No appointments', icon="ℹ️")
         else:
@@ -122,7 +122,7 @@ if selected == len_this_week:
             df_show.columns = columns
             st.dataframe(df_show, use_container_width=True)
 
-    elif right.button(f'Friday - {friday} clients'):
+    if right.button(f'Friday - {friday} clients'):
         if friday==0:
             st.info('No appointments', icon="ℹ️")
         else:
@@ -160,7 +160,7 @@ elif selected == len_next_week:
             df_show.columns = columns
             st.dataframe(df_show, use_container_width=True)
     
-    elif middle.button(f'Thursday - {thursday} clients'):
+    if middle.button(f'Thursday - {thursday} clients'):
         if thursday==0:
             st.info('No appointments', icon="ℹ️")
         else:
@@ -176,7 +176,7 @@ elif selected == len_next_week:
             df_show.columns = columns
             st.dataframe(df_show, use_container_width=True)
 
-    elif right.button(f'Friday - {friday} clients'):
+    if right.button(f'Friday - {friday} clients'):
         if friday==0:
             st.info('No appointments', icon="ℹ️")
         else:
