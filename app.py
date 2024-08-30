@@ -224,6 +224,7 @@ def Agenda():
 
 
 def Statistik():
+            st.write("charts")
             
     
 
