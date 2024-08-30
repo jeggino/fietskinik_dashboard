@@ -123,7 +123,7 @@ if selected == len_this_week:
             st.dataframe(df_show, use_container_width=True)
 
     elif right.button(f'Friday - {friday} clients'):
-        if thursday==0:
+        if friday==0:
             st.info('No appointments', icon="ℹ️")
         else:
             df_filter_this_week_thursday = df_filter_this_week[df_filter_this_week["Day"] == "Friday"]
@@ -177,7 +177,7 @@ elif selected == len_next_week:
             st.dataframe(df_show, use_container_width=True)
 
     elif right.button(f'Friday - {friday} clients'):
-        if thursday==0:
+        if friday==0:
             st.info('No appointments', icon="ℹ️")
         else:
             df_filter_this_week_thursday = df_filter_this_week[df_filter_this_week["Day"] == "Friday"]
