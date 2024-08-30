@@ -107,10 +107,10 @@ if selected == len_this_week:
             df_show.columns = columns
             st.dataframe(df_show, use_container_width=True)
 
-            for client, pics in zip(columns, df_filter_this_week_tuesday["Name_picture"]):
+            for client, pics, comments in zip(columns, df_filter_this_week_tuesday["Name_picture"], df_filter_this_week_tuesday["Remarks"]):
                 try:
                     res = drive.get(pics).read()
-                    st.image(res,caption=client)
+                    st.image(res,caption=f"{client} - {comments}")
                 except:
                     continue
     
@@ -130,10 +130,10 @@ if selected == len_this_week:
             df_show.columns = columns
             st.dataframe(df_show, use_container_width=True)
 
-            for client, pics in zip(columns, df_filter_this_week_thursday["Name_picture"]):
+            for client, pics, comments in zip(columns, df_filter_this_week_thursday["Name_picture"], df_filter_this_week_thursday["Remarks"]):
                 try:
                     res = drive.get(pics).read()
-                    st.image(res,caption=client)
+                    st.image(res,caption=f"{client} - {comments}")
                 except:
                     continue
 
@@ -153,10 +153,10 @@ if selected == len_this_week:
             df_show.columns = columns
             st.dataframe(df_show, use_container_width=True)
 
-            for client, pics in zip(columns, df_filter_this_week_friday["Name_picture"]):
+            for client, pics, comments in zip(columns, df_filter_this_week_friday["Name_picture"], df_filter_this_week_friday["Remarks"]):
                 try:
                     res = drive.get(pics).read()
-                    st.image(res,caption=client)
+                    st.image(res,caption=f"{client} - {comments}")
                 except:
                     continue
                       
@@ -182,10 +182,10 @@ elif selected == len_next_week:
             df_show.columns = columns
             st.dataframe(df_show, use_container_width=True)
 
-            for client, pics in zip(columns, df_filter_next_week_tuesday["Name_picture"]):
+            for client, pics, comments in zip(columns, df_filter_next_week_tuesday["Name_picture"], df_filter_next_week_tuesday["Remarks"]):
                 try:
                     res = drive.get(pics).read()
-                    st.image(res,caption=client)
+                    st.image(res,caption=f"{client} - {comments}")
                 except:
                     continue
     if middle.button(f'Thursday - {thursday} clients'):
@@ -205,10 +205,10 @@ elif selected == len_next_week:
             df_show.columns = columns
             st.dataframe(df_show, use_container_width=True)
 
-            for client, pics in zip(columns, df_filter_next_week_thursday["Name_picture"]):
+            for client, pics, comments in zip(columns, df_filter_next_week_thursday["Name_picture"], df_filter_next_week_thursday["Remarks"]):
                 try:
                     res = drive.get(pics).read()
-                    st.image(res,caption=client)
+                    st.image(res,caption=f"{client} - {comments}")
                 except:
                     continue
 
