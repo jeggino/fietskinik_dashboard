@@ -44,7 +44,6 @@ db = deta.Base("db_data")
 db_content = db.fetch().items
 df = pd.DataFrame(db_content)
 
-st.dataframe(df)
 df['Date'] =  pd.to_datetime(df['Date'], format='%Y-%m-%d')
 df['year'] = df['Date'].dt.year
 
