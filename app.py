@@ -201,6 +201,7 @@ elif selected == len_next_week:
             df_pictures_2.index = columns
             df_pictures_2
             for i, column in df_pictures_2.iterrows():
-                
-                res = drive.get(column["Name_picture"]).read()
+                name = column["Name_picture"]
+                st.write(name)
+                res = drive.get(name).read()
                 st.image(res,caption=i)
