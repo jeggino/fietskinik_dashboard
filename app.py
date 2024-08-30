@@ -40,7 +40,7 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 
 # ---Connect to Deta Base with your Project Key---
 deta = Deta(st.secrets["deta_key"])
-db = deta.Base("project_fietskliniek")
+db = deta.Base("db_data")
 db_content = db.fetch().items
 df = pd.DataFrame(db_content)
 
