@@ -199,9 +199,11 @@ elif selected == len_next_week:
 
             df_pictures_2 = df_filter_next_week_friday["Name_picture"]
             df_pictures_2.index = columns
+            
             df_pictures_2
-            for i, column in df_pictures_2.iterrows():
-                name = column["Name_picture"]
-                st.write(name)
-                res = drive.get(name).read()
-                st.image(res,caption=i)
+            # for i, column in df_pictures_2.iterrows():
+            #     name = column["Name_picture"]
+            #     st.write(name)
+            name = "380727926996.jpeg"
+            res = drive.get(name).read()
+            st.image(res,caption=i)
