@@ -106,7 +106,7 @@ if selected == len_this_week:
             df_show.columns = columns
             st.dataframe(df_show, use_container_width=True)
     
-    if middle.button(f'Thursday - {thursday} clients'):
+    elif middle.button(f'Thursday - {thursday} clients'):
         if thursday==0:
             st.info('No appointments', icon="ℹ️")
         else:
@@ -122,7 +122,7 @@ if selected == len_this_week:
             df_show.columns = columns
             st.dataframe(df_show, use_container_width=True)
 
-    if right.button(f'Friday - {friday} clients'):
+    elif right.button(f'Friday - {friday} clients'):
         if friday==0:
             st.info('No appointments', icon="ℹ️")
         else:
@@ -160,14 +160,15 @@ elif selected == len_next_week:
             df_show.columns = columns
             st.dataframe(df_show, use_container_width=True)
     
-    if middle.button(f'Thursday - {thursday} clients'):
+    elif middle.button(f'Thursday - {thursday} clients'):
         if thursday==0:
             st.info('No appointments', icon="ℹ️")
         else:
             df_filter_next_week_thursday = df_filter_next_week[df_filter_next_week["Day"] == "Thursday"]
 
             
-            df_show = df_filter_next_week_thursday[["Membership","Membership_number","Time shift", "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
+            df_show = df_filter_next_week_thursday[["Membership","Membership_number","Time shift", "Name", "e_mail", 
+                                                    "Phone number", "Neighborhood", "Expertise", "Type of bike",
                                                    "Type of reparation", "Remarks"]].T
             
             columns = []
@@ -176,7 +177,7 @@ elif selected == len_next_week:
             df_show.columns = columns
             st.dataframe(df_show, use_container_width=True)
 
-    if right.button(f'Friday - {friday} clients'):
+    elif right.button(f'Friday - {friday} clients'):
         if friday==0:
             st.info('No appointments', icon="ℹ️")
         else:
@@ -185,8 +186,9 @@ elif selected == len_next_week:
 
             df_filter_next_week_friday["Name_picture"]
                 
-            df_show = df_filter_next_week_friday[["Membership","Membership_number","Time shift", "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
-                                                   "Type of reparation", "Remarks"]].T
+            df_show = df_filter_next_week_friday[["Membership","Membership_number","Time shift", "Name", "e_mail", 
+                                                  "Phone number", "Neighborhood", "Expertise", "Type of bike",
+                                                  "Type of reparation", "Remarks"]].T
             
             columns = []
             for i in range(df_show.shape[1]):
