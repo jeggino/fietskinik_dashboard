@@ -184,7 +184,7 @@ elif selected == len_next_week:
             df_filter_next_week_friday = df_filter_next_week[df_filter_next_week["Day"] == "Friday"]
             st.dataframe(df_filter_next_week_friday)
 
-            df_filter_next_week_friday["Name_picture"]
+            
                 
             df_show = df_filter_next_week_friday[["Membership","Membership_number","Time shift", "Name", "e_mail", 
                                                   "Phone number", "Neighborhood", "Expertise", "Type of bike",
@@ -195,3 +195,7 @@ elif selected == len_next_week:
                 columns.append(f"Client {i + 1}")
             df_show.columns = columns
             st.dataframe(df_show, use_container_width=True)
+
+            df_pictures_2 = df_filter_next_week_friday["Name_picture"]
+            df_pictures_2.index = columns
+            df_pictures_2
