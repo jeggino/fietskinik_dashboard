@@ -225,6 +225,7 @@ def Agenda():
 def Statistik():
             image = "https://www.thesignmaker.co.nz/wp-content/uploads/2019/04/C16_Work-In-Progress.png"
             st.image(image)
+            st.write("2")
             
     
 
