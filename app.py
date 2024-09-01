@@ -223,7 +223,8 @@ def Agenda():
 
 
 def Statistik():
-            st.write("charts")
+            image = "https://www.thesignmaker.co.nz/wp-content/uploads/2019/04/C16_Work-In-Progress.png"
+            st.image(image)
             
     
 
