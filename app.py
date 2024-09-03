@@ -18,15 +18,16 @@ hide_st_style = """
 
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
-# PASSWORD = 'fietskliniek'
-password = st.text_input("Password", label_visibility= 'collapsed', placeholder = "schrijf hier uw wachtwoord ...",)
+placeholder = st.empty()
+password = placeholder.text_input("Password", label_visibility= 'collapsed', placeholder = "schrijf hier uw wachtwoord ...",)
 
 
 if password == 'fietskliniek':
-    pass
+    placeholder.empty()
 
 else:
-    st.stop()
+            st.error("Verkeerd wachtwoord ...")
+            st.stop()
 
 def Agenda():
 
