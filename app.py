@@ -18,7 +18,7 @@ hide_st_style = """
 
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
-PASSWORD = 'fietskliniek'
+# PASSWORD = 'fietskliniek'
 password = st.text_input("Password", label_visibility= 'collapsed', placeholder = "schrijf hier uw wachtwoord ...",)
 
 
