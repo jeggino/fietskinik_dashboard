@@ -20,7 +20,9 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 
 #---PASSWORD---
 placeholder = st.empty()
-st.session_state.password = None
+if 'password' not in st.session_state:
+    st.session_state.password = None
+
 password = placeholder.text_input("Password", value=st.session_state.password, label_visibility= 'collapsed', placeholder = "schrijf hier uw wachtwoord ...",)
 
 
