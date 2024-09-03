@@ -18,6 +18,7 @@ hide_st_style = """
 
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
+#---PASSWORD---
 placeholder = st.empty()
 password = placeholder.text_input("Password", label_visibility= 'collapsed', placeholder = "schrijf hier uw wachtwoord ...",)
 
@@ -29,6 +30,8 @@ else:
             st.error("Verkeerd wachtwoord ...")
             st.stop()
 
+
+#---APP---
 def Agenda():
 
     # ---Connect to Deta Base with your Project Key---
@@ -40,11 +43,8 @@ def Agenda():
     
     df['Date'] =  pd.to_datetime(df['Date'], format='%Y-%m-%d')
     df['year'] = df['Date'].dt.year
-    
-    # ---trial---
-    
-    
-    
+     
+        
     this_week = dt.today().isocalendar()[1]
     next_week = dt.today().isocalendar()[1] + 1
     year = dt.today().isocalendar()[0]
@@ -58,7 +58,6 @@ def Agenda():
     selected = option_menu(
         menu_title=None,
         options=[len_this_week, len_next_week],
-    #     icons=["bi-journal-check", "bi bi-bar-chart-line-fill"],  # https://icons.getbootstrap.com/
         orientation="horizontal",
     )
     
