@@ -26,6 +26,9 @@ password = placeholder.text_input("Password", label_visibility= 'collapsed', pla
 if password == 'fietskliniek':
     placeholder.empty()
 
+elif password == None:
+            st.stop()
+
 else:
             st.error("Verkeerd wachtwoord ...")
             st.stop()
