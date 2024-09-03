@@ -18,6 +18,16 @@ hide_st_style = """
 
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
+PASSWORD = 'fietskliniek'
+password = st.text_input("Password", label_visibility= 'collapsed', placeholder = "schrijf hier uw wachtwoord ...",)
+
+
+if password == 'fietskliniek':
+    pass
+
+else:
+    st.stop()
+
 def Agenda():
 
     # ---Connect to Deta Base with your Project Key---
