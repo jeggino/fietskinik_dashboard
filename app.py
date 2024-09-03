@@ -20,7 +20,8 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 
 #---PASSWORD---
 placeholder = st.empty()
-password = placeholder.text_input("Password", value=None, label_visibility= 'collapsed', placeholder = "schrijf hier uw wachtwoord ...",)
+st.session_state.password = None
+password = placeholder.text_input("Password", value=st.session_state.password, label_visibility= 'collapsed', placeholder = "schrijf hier uw wachtwoord ...",)
 
 
 if password == 'fietskliniek':
