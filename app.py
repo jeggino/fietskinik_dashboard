@@ -45,25 +45,25 @@ def Agenda():
     # df = pd.DataFrame(db_content)
     # drive = deta.Drive("df_pictures")
     
-    df['Date'] =  pd.to_datetime(df['Date'], format='%Y-%m-%d')
-    df['year'] = df['Date'].dt.year
-     
-        
-    this_week = dt.today().isocalendar()[1]
-    next_week = dt.today().isocalendar()[1] + 1
-    year = dt.today().isocalendar()[0]
-    df_filter_this_week = df[(df["Week"]==this_week)&(df["year"]==year)]
-    df_filter_next_week = df[(df["Week"]==next_week)&(df["year"]==year)]
-    
-    len_this_week = f"This week - {len(df_filter_this_week)} clients"
-    len_next_week = f"Next week - {len(df_filter_next_week)} clients"
-    
-    # --- NAVIGATION MENU ---
-    selected = option_menu(
-        menu_title=None,
-        options=[len_this_week, len_next_week],
-        orientation="horizontal",
-    )
+	df['Date'] =  pd.to_datetime(df['Date'], format='%Y-%m-%d')
+	df['year'] = df['Date'].dt.year
+	
+	
+	this_week = dt.today().isocalendar()[1]
+	next_week = dt.today().isocalendar()[1] + 1
+	year = dt.today().isocalendar()[0]
+	df_filter_this_week = df[(df["Week"]==this_week)&(df["year"]==year)]
+	df_filter_next_week = df[(df["Week"]==next_week)&(df["year"]==year)]
+	
+	len_this_week = f"This week - {len(df_filter_this_week)} clients"
+	len_next_week = f"Next week - {len(df_filter_next_week)} clients"
+	
+	# --- NAVIGATION MENU ---
+	selected = option_menu(
+	menu_title=None,
+	options=[len_this_week, len_next_week],
+	orientation="horizontal",
+	)
     
     def convert_df(df):
         # IMPORTANT: Cache the conversion to prevent computation on every rerun
