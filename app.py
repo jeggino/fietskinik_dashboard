@@ -65,175 +65,175 @@ def Agenda():
 	orientation="horizontal",
 	)
     
-    def convert_df(df):
-        # IMPORTANT: Cache the conversion to prevent computation on every rerun
-        return df.to_csv().encode('utf-8')
-    
-    csv = convert_df(df)
-    
-    st.download_button(
-        label="Download data as CSV",
-        data=csv,
-        file_name='fietskliniek_df.csv',
-        mime='text/csv',
-    )
-    
-    
-    
-    if selected == len_this_week:
-        left, middle, right = st.columns([1, 1, 1])
-                
-        tuesday = len(df_filter_this_week[df_filter_this_week["Day"] == "Tuesday"])
-        thursday = len(df_filter_this_week[df_filter_this_week["Day"] == "Thursday"])
-        friday = len(df_filter_this_week[df_filter_this_week["Day"] == "Friday"])
-            
-        if left.button(f'Tuesday - {tuesday} clients'):
-            if tuesday==0:
-                st.info('No appointments', icon="ℹ️")
-            else:
-                df_filter_this_week_tuesday = df_filter_this_week[df_filter_this_week["Day"] == "Tuesday"]
-    
-                
-                df_show = df_filter_this_week_tuesday[["Membership","Membership_number","Time shift", "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
-                                                       "Type of reparation", "Remarks"]].T
-                columns = []
-                for i in range(df_show.shape[1]):
-                    columns.append(f"Client {i + 1}")
-                df_show.columns = columns
-                st.dataframe(df_show, use_container_width=True)
-    
-                # for client, pics, comments in zip(columns, df_filter_this_week_tuesday["Name_picture"], df_filter_this_week_tuesday["Remarks"]):
-                #     try:
-                #         res = drive.get(pics).read()
-                #         st.image(res,caption=f"{client} - {comments}")
-                #     except:
-                #         continue
-        
-        if middle.button(f'Thursday - {thursday} clients'):
-            if thursday==0:
-                st.info('No appointments', icon="ℹ️")
-            else:
-                df_filter_this_week_thursday = df_filter_this_week[df_filter_this_week["Day"] == "Thursday"]
-    
-                
-                df_show = df_filter_this_week_thursday[["Membership","Membership_number","Time shift", "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
-                                                       "Type of reparation", "Remarks"]].T
-                
-                columns = []
-                for i in range(df_show.shape[1]):
-                    columns.append(f"Client {i + 1}")
-                df_show.columns = columns
-                st.dataframe(df_show, use_container_width=True)
-    
-                # for client, pics, comments in zip(columns, df_filter_this_week_thursday["Name_picture"], df_filter_this_week_thursday["Remarks"]):
-                #     try:
-                #         res = drive.get(pics).read()
-                #         st.image(res,caption=f"{client} - {comments}")
-                #     except:
-                #         continue
-    
-        if right.button(f'Friday - {friday} clients'):
-            if friday==0:
-                st.info('No appointments', icon="ℹ️")
-            else:
-                df_filter_this_week_friday = df_filter_this_week[df_filter_this_week["Day"] == "Friday"]
-    
-                
-                df_show = df_filter_this_week_friday[["Membership","Membership_number","Time shift", "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
-                                                       "Type of reparation", "Remarks"]].T
-                
-                columns = []
-                for i in range(df_show.shape[1]):
-                    columns.append(f"Client {i + 1}")
-                df_show.columns = columns
-                st.dataframe(df_show, use_container_width=True)
-    
-                # for client, pics, comments in zip(columns, df_filter_this_week_friday["Name_picture"], df_filter_this_week_friday["Remarks"]):
-                #     try:
-                #         res = drive.get(pics).read()
-                #         st.image(res,caption=f"{client} - {comments}")
-                #     except:
-                #         continue
-                          
-    elif selected == len_next_week:
-        left, middle, right = st.columns([1, 1, 1])
-                
-        tuesday = len(df_filter_next_week[df_filter_next_week["Day"] == "Tuesday"])
-        thursday = len(df_filter_next_week[df_filter_next_week["Day"] == "Thursday"])
-        friday = len(df_filter_next_week[df_filter_next_week["Day"] == "Friday"])
-            
-        if left.button(f'Tuesday - {tuesday} clients'):
-            if tuesday==0:
-                st.info('No appointments', icon="ℹ️")
-            else:
-                df_filter_next_week_tuesday = df_filter_next_week[df_filter_next_week["Day"] == "Tuesday"]
-    
-                
-                df_show = df_filter_next_week_tuesday[["Membership","Membership_number","Time shift", "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
-                                                       "Type of reparation", "Remarks"]].T
-                columns = []
-                for i in range(df_show.shape[1]):
-                    columns.append(f"Client {i + 1}")
-                df_show.columns = columns
-                st.dataframe(df_show, use_container_width=True)
-    
-                # for client, pics, comments in zip(columns, df_filter_next_week_tuesday["Name_picture"], df_filter_next_week_tuesday["Remarks"]):
-                #     try:
-                #         res = drive.get(pics).read()
-                #         st.image(res,caption=f"{client} - {comments}")
-                #     except:
-                #         continue
-        if middle.button(f'Thursday - {thursday} clients'):
-            if thursday==0:
-                st.info('No appointments', icon="ℹ️")
-            else:
-                df_filter_next_week_thursday = df_filter_next_week[df_filter_next_week["Day"] == "Thursday"]
-    
-                
-                df_show = df_filter_next_week_thursday[["Membership","Membership_number","Time shift", "Name", "e_mail", 
-                                                        "Phone number", "Neighborhood", "Expertise", "Type of bike",
-                                                       "Type of reparation", "Remarks"]].T
-                
-                columns = []
-                for i in range(df_show.shape[1]):
-                    columns.append(f"Client {i + 1}")
-                df_show.columns = columns
-                st.dataframe(df_show, use_container_width=True)
-    
-                # for client, pics, comments in zip(columns, df_filter_next_week_thursday["Name_picture"], df_filter_next_week_thursday["Remarks"]):
-                #     try:
-                #         res = drive.get(pics).read()
-                #         st.image(res,caption=f"{client} - {comments}")
-                #     except:
-                #         continue
-    
-        if right.button(f'Friday - {friday} clients'):
-            if friday==0:
-                st.info('No appointments', icon="ℹ️")
-            else:
-                
-                df_filter_next_week_friday = df_filter_next_week[df_filter_next_week["Day"] == "Friday"]
-                          
-                df_show = df_filter_next_week_friday[["Membership","Membership_number","Time shift", "Name", "e_mail", 
-                                                      "Phone number", "Neighborhood", "Expertise", "Type of bike",
-                                                      "Type of reparation", "Remarks"]].T
-                
-                columns = []
-                
-                for i in range(df_show.shape[1]):
-                    columns.append(f"Client {i + 1}")
-                    
-                df_show.columns = columns
-                st.dataframe(df_show, use_container_width=True)
-    
-                df_pictures_2 = df_filter_next_week_friday["Name_picture"]
-                df_pictures_2.index = columns
-                # for client, pics, comments in zip(columns, df_filter_next_week_friday["Name_picture"], df_filter_next_week_friday["Remarks"]):
-                #     try:
-                #         res = drive.get(pics).read()
-                #         st.image(res,caption=f"{client} - {comments}")
-                #     except:
-                #         continue
+	def convert_df(df):
+	# IMPORTANT: Cache the conversion to prevent computation on every rerun
+		return df.to_csv().encode('utf-8')
+	
+	csv = convert_df(df)
+	
+	st.download_button(
+	label="Download data as CSV",
+	data=csv,
+	file_name='fietskliniek_df.csv',
+	mime='text/csv',
+	)
+	
+	
+	
+	if selected == len_this_week:
+	left, middle, right = st.columns([1, 1, 1])
+		
+	tuesday = len(df_filter_this_week[df_filter_this_week["Day"] == "Tuesday"])
+	thursday = len(df_filter_this_week[df_filter_this_week["Day"] == "Thursday"])
+	friday = len(df_filter_this_week[df_filter_this_week["Day"] == "Friday"])
+	    
+	if left.button(f'Tuesday - {tuesday} clients'):
+	    if tuesday==0:
+		st.info('No appointments', icon="ℹ️")
+	    else:
+		df_filter_this_week_tuesday = df_filter_this_week[df_filter_this_week["Day"] == "Tuesday"]
+	
+		
+		df_show = df_filter_this_week_tuesday[["Membership","Membership_number","Time shift", "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
+						       "Type of reparation", "Remarks"]].T
+		columns = []
+		for i in range(df_show.shape[1]):
+		    columns.append(f"Client {i + 1}")
+		df_show.columns = columns
+		st.dataframe(df_show, use_container_width=True)
+	
+		# for client, pics, comments in zip(columns, df_filter_this_week_tuesday["Name_picture"], df_filter_this_week_tuesday["Remarks"]):
+		#     try:
+		#         res = drive.get(pics).read()
+		#         st.image(res,caption=f"{client} - {comments}")
+		#     except:
+		#         continue
+	
+	if middle.button(f'Thursday - {thursday} clients'):
+	    if thursday==0:
+		st.info('No appointments', icon="ℹ️")
+	    else:
+		df_filter_this_week_thursday = df_filter_this_week[df_filter_this_week["Day"] == "Thursday"]
+	
+		
+		df_show = df_filter_this_week_thursday[["Membership","Membership_number","Time shift", "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
+						       "Type of reparation", "Remarks"]].T
+		
+		columns = []
+		for i in range(df_show.shape[1]):
+		    columns.append(f"Client {i + 1}")
+		df_show.columns = columns
+		st.dataframe(df_show, use_container_width=True)
+	
+		# for client, pics, comments in zip(columns, df_filter_this_week_thursday["Name_picture"], df_filter_this_week_thursday["Remarks"]):
+		#     try:
+		#         res = drive.get(pics).read()
+		#         st.image(res,caption=f"{client} - {comments}")
+		#     except:
+		#         continue
+	
+	if right.button(f'Friday - {friday} clients'):
+	    if friday==0:
+		st.info('No appointments', icon="ℹ️")
+	    else:
+		df_filter_this_week_friday = df_filter_this_week[df_filter_this_week["Day"] == "Friday"]
+	
+		
+		df_show = df_filter_this_week_friday[["Membership","Membership_number","Time shift", "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
+						       "Type of reparation", "Remarks"]].T
+		
+		columns = []
+		for i in range(df_show.shape[1]):
+		    columns.append(f"Client {i + 1}")
+		df_show.columns = columns
+		st.dataframe(df_show, use_container_width=True)
+	
+		# for client, pics, comments in zip(columns, df_filter_this_week_friday["Name_picture"], df_filter_this_week_friday["Remarks"]):
+		#     try:
+		#         res = drive.get(pics).read()
+		#         st.image(res,caption=f"{client} - {comments}")
+		#     except:
+		#         continue
+			  
+	elif selected == len_next_week:
+	left, middle, right = st.columns([1, 1, 1])
+		
+	tuesday = len(df_filter_next_week[df_filter_next_week["Day"] == "Tuesday"])
+	thursday = len(df_filter_next_week[df_filter_next_week["Day"] == "Thursday"])
+	friday = len(df_filter_next_week[df_filter_next_week["Day"] == "Friday"])
+	    
+	if left.button(f'Tuesday - {tuesday} clients'):
+	    if tuesday==0:
+		st.info('No appointments', icon="ℹ️")
+	    else:
+		df_filter_next_week_tuesday = df_filter_next_week[df_filter_next_week["Day"] == "Tuesday"]
+	
+		
+		df_show = df_filter_next_week_tuesday[["Membership","Membership_number","Time shift", "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
+						       "Type of reparation", "Remarks"]].T
+		columns = []
+		for i in range(df_show.shape[1]):
+		    columns.append(f"Client {i + 1}")
+		df_show.columns = columns
+		st.dataframe(df_show, use_container_width=True)
+	
+		# for client, pics, comments in zip(columns, df_filter_next_week_tuesday["Name_picture"], df_filter_next_week_tuesday["Remarks"]):
+		#     try:
+		#         res = drive.get(pics).read()
+		#         st.image(res,caption=f"{client} - {comments}")
+		#     except:
+		#         continue
+	if middle.button(f'Thursday - {thursday} clients'):
+	    if thursday==0:
+		st.info('No appointments', icon="ℹ️")
+	    else:
+		df_filter_next_week_thursday = df_filter_next_week[df_filter_next_week["Day"] == "Thursday"]
+	
+		
+		df_show = df_filter_next_week_thursday[["Membership","Membership_number","Time shift", "Name", "e_mail", 
+							"Phone number", "Neighborhood", "Expertise", "Type of bike",
+						       "Type of reparation", "Remarks"]].T
+		
+		columns = []
+		for i in range(df_show.shape[1]):
+		    columns.append(f"Client {i + 1}")
+		df_show.columns = columns
+		st.dataframe(df_show, use_container_width=True)
+	
+		# for client, pics, comments in zip(columns, df_filter_next_week_thursday["Name_picture"], df_filter_next_week_thursday["Remarks"]):
+		#     try:
+		#         res = drive.get(pics).read()
+		#         st.image(res,caption=f"{client} - {comments}")
+		#     except:
+		#         continue
+	
+	if right.button(f'Friday - {friday} clients'):
+	    if friday==0:
+		st.info('No appointments', icon="ℹ️")
+	    else:
+		
+		df_filter_next_week_friday = df_filter_next_week[df_filter_next_week["Day"] == "Friday"]
+			  
+		df_show = df_filter_next_week_friday[["Membership","Membership_number","Time shift", "Name", "e_mail", 
+						      "Phone number", "Neighborhood", "Expertise", "Type of bike",
+						      "Type of reparation", "Remarks"]].T
+		
+		columns = []
+		
+		for i in range(df_show.shape[1]):
+		    columns.append(f"Client {i + 1}")
+		    
+		df_show.columns = columns
+		st.dataframe(df_show, use_container_width=True)
+	
+		df_pictures_2 = df_filter_next_week_friday["Name_picture"]
+		df_pictures_2.index = columns
+		# for client, pics, comments in zip(columns, df_filter_next_week_friday["Name_picture"], df_filter_next_week_friday["Remarks"]):
+		#     try:
+		#         res = drive.get(pics).read()
+		#         st.image(res,caption=f"{client} - {comments}")
+		#     except:
+		#         continue
 
 
 def Statistik():
