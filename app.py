@@ -1,10 +1,9 @@
 import streamlit as st  
 from streamlit_option_menu import option_menu  
-from deta import Deta
 import pandas as pd
 import altair as alt
-import mapclassify
 from datetime import datetime as dt
+from streamlit_gsheets import GSheetsConnection
 
 
 # --- HIDE STREAMLIT STYLE ---
@@ -38,11 +37,13 @@ else:
 def Agenda():
 
     # ---Connect to Deta Base with your Project Key---
-    deta = Deta(st.secrets["deta_key"])
-    db = deta.Base("db_data")
-    db_content = db.fetch().items
-    df = pd.DataFrame(db_content)
-    drive = deta.Drive("df_pictures")
+	conn = st.connection("gsheets", type=GSheetsConnection)
+	df = conn.read(ttl=0,worksheet="Data")
+    # deta = Deta(st.secrets["deta_key"])
+    # db = deta.Base("db_data")
+    # db_content = db.fetch().items
+    # df = pd.DataFrame(db_content)
+    # drive = deta.Drive("df_pictures")
     
     df['Date'] =  pd.to_datetime(df['Date'], format='%Y-%m-%d')
     df['year'] = df['Date'].dt.year
@@ -101,12 +102,12 @@ def Agenda():
                 df_show.columns = columns
                 st.dataframe(df_show, use_container_width=True)
     
-                for client, pics, comments in zip(columns, df_filter_this_week_tuesday["Name_picture"], df_filter_this_week_tuesday["Remarks"]):
-                    try:
-                        res = drive.get(pics).read()
-                        st.image(res,caption=f"{client} - {comments}")
-                    except:
-                        continue
+                # for client, pics, comments in zip(columns, df_filter_this_week_tuesday["Name_picture"], df_filter_this_week_tuesday["Remarks"]):
+                #     try:
+                #         res = drive.get(pics).read()
+                #         st.image(res,caption=f"{client} - {comments}")
+                #     except:
+                #         continue
         
         if middle.button(f'Thursday - {thursday} clients'):
             if thursday==0:
@@ -124,12 +125,12 @@ def Agenda():
                 df_show.columns = columns
                 st.dataframe(df_show, use_container_width=True)
     
-                for client, pics, comments in zip(columns, df_filter_this_week_thursday["Name_picture"], df_filter_this_week_thursday["Remarks"]):
-                    try:
-                        res = drive.get(pics).read()
-                        st.image(res,caption=f"{client} - {comments}")
-                    except:
-                        continue
+                # for client, pics, comments in zip(columns, df_filter_this_week_thursday["Name_picture"], df_filter_this_week_thursday["Remarks"]):
+                #     try:
+                #         res = drive.get(pics).read()
+                #         st.image(res,caption=f"{client} - {comments}")
+                #     except:
+                #         continue
     
         if right.button(f'Friday - {friday} clients'):
             if friday==0:
@@ -147,12 +148,12 @@ def Agenda():
                 df_show.columns = columns
                 st.dataframe(df_show, use_container_width=True)
     
-                for client, pics, comments in zip(columns, df_filter_this_week_friday["Name_picture"], df_filter_this_week_friday["Remarks"]):
-                    try:
-                        res = drive.get(pics).read()
-                        st.image(res,caption=f"{client} - {comments}")
-                    except:
-                        continue
+                # for client, pics, comments in zip(columns, df_filter_this_week_friday["Name_picture"], df_filter_this_week_friday["Remarks"]):
+                #     try:
+                #         res = drive.get(pics).read()
+                #         st.image(res,caption=f"{client} - {comments}")
+                #     except:
+                #         continue
                           
     elif selected == len_next_week:
         left, middle, right = st.columns([1, 1, 1])
@@ -176,12 +177,12 @@ def Agenda():
                 df_show.columns = columns
                 st.dataframe(df_show, use_container_width=True)
     
-                for client, pics, comments in zip(columns, df_filter_next_week_tuesday["Name_picture"], df_filter_next_week_tuesday["Remarks"]):
-                    try:
-                        res = drive.get(pics).read()
-                        st.image(res,caption=f"{client} - {comments}")
-                    except:
-                        continue
+                # for client, pics, comments in zip(columns, df_filter_next_week_tuesday["Name_picture"], df_filter_next_week_tuesday["Remarks"]):
+                #     try:
+                #         res = drive.get(pics).read()
+                #         st.image(res,caption=f"{client} - {comments}")
+                #     except:
+                #         continue
         if middle.button(f'Thursday - {thursday} clients'):
             if thursday==0:
                 st.info('No appointments', icon="ℹ️")
@@ -199,12 +200,12 @@ def Agenda():
                 df_show.columns = columns
                 st.dataframe(df_show, use_container_width=True)
     
-                for client, pics, comments in zip(columns, df_filter_next_week_thursday["Name_picture"], df_filter_next_week_thursday["Remarks"]):
-                    try:
-                        res = drive.get(pics).read()
-                        st.image(res,caption=f"{client} - {comments}")
-                    except:
-                        continue
+                # for client, pics, comments in zip(columns, df_filter_next_week_thursday["Name_picture"], df_filter_next_week_thursday["Remarks"]):
+                #     try:
+                #         res = drive.get(pics).read()
+                #         st.image(res,caption=f"{client} - {comments}")
+                #     except:
+                #         continue
     
         if right.button(f'Friday - {friday} clients'):
             if friday==0:
@@ -227,12 +228,12 @@ def Agenda():
     
                 df_pictures_2 = df_filter_next_week_friday["Name_picture"]
                 df_pictures_2.index = columns
-                for client, pics, comments in zip(columns, df_filter_next_week_friday["Name_picture"], df_filter_next_week_friday["Remarks"]):
-                    try:
-                        res = drive.get(pics).read()
-                        st.image(res,caption=f"{client} - {comments}")
-                    except:
-                        continue
+                # for client, pics, comments in zip(columns, df_filter_next_week_friday["Name_picture"], df_filter_next_week_friday["Remarks"]):
+                #     try:
+                #         res = drive.get(pics).read()
+                #         st.image(res,caption=f"{client} - {comments}")
+                #     except:
+                #         continue
 
 
 def Statistik():
