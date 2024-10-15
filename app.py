@@ -81,8 +81,8 @@ def Agenda():
 	
 	
 	if selected == len_this_week:
-	left, middle, right = st.columns([1, 1, 1])
-		
+		left, middle, right = st.columns([1, 1, 1])
+			
 	tuesday = len(df_filter_this_week[df_filter_this_week["Day"] == "Tuesday"])
 	thursday = len(df_filter_this_week[df_filter_this_week["Day"] == "Thursday"])
 	friday = len(df_filter_this_week[df_filter_this_week["Day"] == "Friday"])
