@@ -88,10 +88,10 @@ def Agenda():
 	friday = len(df_filter_this_week[df_filter_this_week["Day"] == "Friday"])
 	    
 	if left.button(f'Tuesday - {tuesday} clients'):
-	    if tuesday==0:
-		st.info('No appointments', icon="ℹ️")
-	    else:
-		df_filter_this_week_tuesday = df_filter_this_week[df_filter_this_week["Day"] == "Tuesday"]
+		if tuesday==0:
+			st.info('No appointments', icon="ℹ️")
+		else:
+			df_filter_this_week_tuesday = df_filter_this_week[df_filter_this_week["Day"] == "Tuesday"]
 	
 		
 		df_show = df_filter_this_week_tuesday[["Membership","Membership_number","Time shift", "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
