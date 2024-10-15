@@ -26,11 +26,11 @@ if password == 'fietskliniek':
     placeholder.empty()
 
 elif password == None:
-            st.stop()
+    st.stop()
 
 else:
-            st.error("Verkeerd wachtwoord ...")
-            st.stop()
+    st.error("Verkeerd wachtwoord ...")
+    st.stop()
 
 
 #---APP---
@@ -38,13 +38,7 @@ def Agenda():
 
     # ---Connect to Deta Base with your Project Key---
 	conn = st.connection("gsheets", type=GSheetsConnection)
-	df = conn.read(ttl=0,worksheet="Data")
-    # deta = Deta(st.secrets["deta_key"])
-    # db = deta.Base("db_data")
-    # db_content = db.fetch().items
-    # df = pd.DataFrame(db_content)
-    # drive = deta.Drive("df_pictures")
-    
+	df = conn.read(ttl=0,worksheet="Data")   
 	df['Date'] =  pd.to_datetime(df['Date'], format='%Y-%m-%d')
 	df['year'] = df['Date'].dt.year
 	
@@ -65,19 +59,6 @@ def Agenda():
 	orientation="horizontal",
 	)
 
-	def convert_df(df):
-	# IMPORTANT: Cache the conversion to prevent computation on every rerun
-		return df.to_csv().encode('utf-8')
-	
-	csv = convert_df(df)
-	
-	st.download_button(
-	label="Download data as CSV",
-	data=csv,
-	file_name='fietskliniek_df.csv',
-	mime='text/csv',
-	)
-	
 	if selected == len_this_week:
 		left, middle, right = st.columns([1, 1, 1])
 			
