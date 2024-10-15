@@ -64,6 +64,19 @@ def Agenda():
 	options=[len_this_week, len_next_week],
 	orientation="horizontal",
 	)
+
+	def convert_df(df):
+	# IMPORTANT: Cache the conversion to prevent computation on every rerun
+		return df.to_csv().encode('utf-8')
+	
+	csv = convert_df(df)
+	
+	st.download_button(
+	label="Download data as CSV",
+	data=csv,
+	file_name='fietskliniek_df.csv',
+	mime='text/csv',
+	)
 	
 	if selected == len_this_week:
 		left, middle, right = st.columns([1, 1, 1])
