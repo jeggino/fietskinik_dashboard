@@ -118,14 +118,14 @@ def Agenda():
 				df_filter_this_week_friday = df_filter_this_week[df_filter_this_week["Day"] == "Friday"]
 	
 	
-			df_show = df_filter_this_week_friday[["Membership","Membership_number","Time shift", "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
-					       "Type of reparation", "Remarks"]].T
-			
-			columns = []
-			for i in range(df_show.shape[1]):
-				columns.append(f"Client {i + 1}")
-			df_show.columns = columns
-			st.dataframe(df_show, use_container_width=True)
+				df_show = df_filter_this_week_friday[["Membership","Membership_number","Time shift", "Name", "e_mail", "Phone number", "Neighborhood", "Expertise", "Type of bike",
+						       "Type of reparation", "Remarks"]].T
+				
+				columns = []
+				for i in range(df_show.shape[1]):
+					columns.append(f"Client {i + 1}")
+				df_show.columns = columns
+				st.dataframe(df_show, use_container_width=True)
 
 # for client, pics, comments in zip(columns, df_filter_this_week_friday["Name_picture"], df_filter_this_week_friday["Remarks"]):
 #     try:
